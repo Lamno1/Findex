@@ -19,9 +19,11 @@ against a formal-credit-specific, information-screening interpretation of the re
 though informal borrowing is not a clean negative control (it can still reflect social
 ties, reputation and selection). Allowing digital-payment activity to also interact with
 log GDP per capita and the account-ownership rate erodes the formal-borrowing interaction
-to non-significance in both waves, though this is consistent with severe collinearity
-between coverage and GDP per capita ($r=0.74$ across the 93 economies) rather than with a
-cleanly identified competing channel. The result is an empirical puzzle rather than a
+to non-significance in both waves on the full 93-economy sample, though this is consistent
+with severe collinearity between coverage and GDP per capita ($r=0.74$ across the 93
+economies) rather than with a cleanly identified competing channel; the erosion is not
+robust to excluding China and Saudi Arabia in 2021, where the interaction regains
+significance on the remaining 91 economies (\S5.4). The result is an empirical puzzle rather than a
 confirmed boundary condition: a cross-level association observed consistently across both
 waves, whose two most natural explanations --- an information-screening channel specific
 to formal credit, and a general economic-development channel --- are, respectively,
@@ -315,10 +317,20 @@ simultaneously, with only 93 economy-level clusters, imposes a severe collineari
 regardless of whether a genuinely separable development channel exists --- consistent with
 neither new interaction term itself reaching significance. Excluding China and Saudi
 Arabia and re-standardizing the coverage and GDP-per-capita moderators over the remaining
-91 economies does not change this reading: the coverage interaction is $-1.38$ pp
-($p=0.039$) in 2021 and $-0.95$ pp ($p=0.33$) in 2024, and \texttt{dig\_x\_lgdppc} and
-\texttt{dig\_x\_accrate} remain non-significant in both waves, so the attenuation pattern
-is not driven by the two economies with disclosed \emph{Getting Credit} irregularities. This is reported plainly rather
+91 economies changes the 2021 significance conclusion specifically: the coverage
+interaction is $-1.38$ pp and \emph{regains} conventional significance ($p=0.039$, versus
+$p=0.087$ on 93 economies); in 2024 it is $-0.95$ pp and remains non-significant
+($p=0.33$), consistent with the 93-economy result. \texttt{dig\_x\_lgdppc} and
+\texttt{dig\_x\_accrate} remain non-significant in both waves on 91 economies. The claim
+that macro-controls erode the coverage interaction to non-significance in \emph{both}
+waves therefore holds only on the full 93-economy sample; on the 91-economy sample it
+holds for 2024 only, while 2021 retains significance once China and Saudi Arabia are
+excluded. This is not evidence that the two economies' disclosed \emph{Getting Credit}
+irregularities drive the primary result --- \S3 shows the primary two-wave interaction is
+robust to their exclusion in both waves --- but it does mean the macro-control erosion is
+more sensitive to sample composition than the primary interaction is, and the
+"non-significant in both waves" language elsewhere in this paper describes the
+93-economy specification, not a sample-invariant finding. This is reported plainly rather
 than softened: with this degree of correlation and this many clusters, the design cannot
 cleanly distinguish a credit-information-specific channel from a general economic-development
 channel. The attenuation is consistent with either genuine confounding or with
@@ -387,10 +399,16 @@ with the opposite sign --- though informal borrowing is not a clean negative con
 it can still reflect social ties, reputation and selection unrelated to credit-information
 screening. Separately, allowing digital-payment
 activity to interact with log GDP per capita and the account-ownership rate (\S5.4) erodes
-the formal-borrowing interaction to non-significance in both waves; because 2019 coverage
-and log GDP per capita are themselves correlated at $r=0.74$ across the 93 economies, this
-is consistent with either a genuine development-level channel or with the two variables
-simply being too collinear, given 93 clusters, for the design to tell them apart. Taken
+the formal-borrowing interaction to non-significance in both waves on the full 93-economy
+sample; because 2019 coverage and log GDP per capita are themselves correlated at $r=0.74$
+across the 93 economies, this is consistent with either a genuine development-level
+channel or with the two variables simply being too collinear, given 93 clusters, for the
+design to tell them apart. This erosion is itself sample-sensitive: excluding China and
+Saudi Arabia, the 2021 interaction regains significance ($p=0.039$ on 91 economies versus
+$p=0.087$ on 93), while the 2024 result is unchanged (\S5.4); the non-significance claim
+should therefore be read as specific to the 93-economy specification rather than as a
+sample-invariant finding, which further limits how much weight the macro-control check can
+bear relative to the placebo. Taken
 together, these checks leave the reversal itself observed consistently across both waves,
 but its two most natural explanations --- a credit-information-specific channel, and a
 general-development channel --- respectively disfavoured by the evidence and unidentifiable.
@@ -445,8 +463,11 @@ specific account, though informal borrowing is not a clean negative control, sin
 still reflect social ties, reputation and selection. A parallel check allowing
 digital-payment activity to interact with general economic development (log GDP per
 capita) and the account-ownership rate erodes the formal-borrowing interaction to
-non-significance in both waves, though this is not separable from severe collinearity
-between coverage and development ($r=0.74$) given only 93 economy clusters. The reversal
+non-significance in both waves on the full 93-economy sample, though this is not separable
+from severe collinearity between coverage and development ($r=0.74$) given only 93 economy
+clusters; the 2021 erosion does not survive excluding China and Saudi Arabia, where the
+interaction regains significance on the remaining 91 economies (\S5.4), so this check
+carries less weight than the placebo. The reversal
 itself is therefore observed consistently across both waves, but its most natural specific
 explanation is disfavoured by the evidence and its next most natural explanation is not
 identifiable with this design --- an empirical puzzle, not a resolved mechanism. It does
@@ -471,7 +492,11 @@ inverse-probability-reweighting check (\S5.4) confirms this is not merely a theo
 concern: 80 of the 132 economies with usable covariates fall outside common support between
 the included and excluded groups, so the sample is classified not credibly transportable
 with the available covariate overlap to the excluded, mostly high-coverage population,
-regardless of the reweighted point estimates' own stability. The same diagnostic also shows the coverage interaction attenuates by 31--39\%
+regardless of the reweighted point estimates' own stability. The inclusion logit underlying
+this check still includes China and Saudi Arabia among the 93 included economies; it was
+not re-estimated excluding them, so the reweighting check itself has not been subjected to
+the same China/Saudi Arabia sensitivity analysis applied to the primary, placebo and
+macro-control results (\S3, \S5.4). The same diagnostic also shows the coverage interaction attenuates by 31--39\%
 and loses conventional significance once digital-payment activity is additionally allowed
 to interact with log GDP per capita and the account-ownership rate. Coverage and log GDP
 per capita are themselves highly correlated across the 93 economies ($r=0.74$), so this
@@ -509,11 +534,14 @@ limitations are not resolved by persistence across waves or by robustness checks
 Database 2021 and 2025 microdata \citep{WorldBankFindexMicrodata2025} and the archived
 World Bank Doing Business \emph{Getting Credit} indicators
 \citep{WorldBankDoingBusinessArchive}, both obtainable from the World Bank Microdata
-Library and Doing Business archive respectively. The frozen analytical dataset (194,558
-observations, 93 economies, SHA-256
-\texttt{78938AFF518F3F3BC049A18E7B8CA5C1042996392B1ACDD6EAAB56FC555240C1}) and all
-estimation code are retained in the project repository and available from the
-corresponding author on reasonable request.
+Library and Doing Business archive respectively; the raw survey microdata are not
+redistributed here in accordance with the World Bank Microdata Library's dataset-use
+terms. All estimation and data-construction code, the aggregated (economy- and
+coefficient-level) results underlying every table and robustness check, and exact
+provenance (official catalogue links and SHA-256 hashes) needed to re-download the source
+microdata and rebuild the frozen analytical dataset (194,558 observations, 93 economies,
+SHA-256 \texttt{78938AFF518F3F3BC049A18E7B8CA5C1042996392B1ACDD6EAAB56FC555240C1}) from
+scratch are openly available at \url{https://github.com/Lamno1/Findex}.
 
 \paragraph{Ethics.} All microdata are secondary, de-identified, publicly released survey
 data with no individual identifiers; no new human-subjects data were collected for this
