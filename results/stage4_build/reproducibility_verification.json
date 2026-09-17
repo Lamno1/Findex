@@ -1,0 +1,6 @@
+{
+  "criterion": "byte-identical UTF-8 CSV content from deterministic transformation",
+  "byte_identical": true,
+  "original_sha256": "78938AFF518F3F3BC049A18E7B8CA5C1042996392B1ACDD6EAAB56FC555240C1",
+  "rebuild_sha256": "78938AFF518F3F3BC049A18E7B8CA5C1042996392B1ACDD6EAAB56FC555240C1"
+}

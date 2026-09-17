@@ -1,0 +1,15 @@
+{
+  "source_sha256": {
+    "results\\stage2\\CODEX-S5-EXP-20260909-002\\result.json": "1b10c45515d685e1aedb6ba9098e6c9833bfd1ea4a3396e72b9784d4aa6a516f",
+    "results\\stage2\\CODEX-S5-M6-2-20260909-001\\result.json": "81a320d9eb66df4556a8b366b4903245cb9e916204b7aac08703a87042a200c2",
+    "results\\stage1\\CODEX-S5-BUILD-20260909-001\\analysis_panel.csv": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9"
+  },
+  "output_sha256": {
+    "T1_drop_table.csv": "f1f5f183710c6e3c270aae39839fda11501b4f9e468f8e0e3d838e2404b429a8",
+    "T2_descriptives.csv": "f008670afbea62844ddaeaa578029dfaa315c57ab808c15454f84168e5dcc5d9",
+    "T3_primary_moderation.csv": "408b6d1dda71e43e528305bc5ff9949ad4f98c318843455e5daadfe3b04c3874",
+    "T4_mechanism.csv": "af8e74471869f9ed58f75075477ba91a471a14d9dac2fc7c8cd8edad16471072",
+    "T5_secondary_placebo.csv": "20a009d99088e1d93111e63142852eee46337db65cd51e74dbff02cd5c119a74",
+    "T6_robustness.csv": "d7fd899dd65644e1122866e544ae81d8f41734d2f86443ba9f2f154fb1912c25"
+  }
+}

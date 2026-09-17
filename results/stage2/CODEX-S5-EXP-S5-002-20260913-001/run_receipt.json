@@ -1,0 +1,26 @@
+{
+  "run_id": "CODEX-S5-EXP-S5-002-20260913-001",
+  "status": "PARTIAL_ESTIMATED_UNVERIFIED_Q5_COMPLETE",
+  "hypothesis": "H-000501",
+  "scope_note": "Q5 is complete. The overall EXP-S5-002 output contract is not yet complete; no full-run completion claim is made.",
+  "frozen_hashes": {
+    "research_council\\hypotheses\\H-000501.json": "05387df89c5cbc4cfcbda0d2bdbdcf32ac1e54181a4f7285a277257c75c31320",
+    "papers\\study_05\\PREREGISTRATION_H000501.md": "0ff371662e673bd087218c1433f42c20d5040e291d1c35a951079d9e94d55b8f",
+    "papers\\study_05\\VARIABLE_CONTRACT_H000501.md": "b9ea92ee3b7437f1494d935ad5bd79b43d8592c776722f06a9891505e1d4e5ce"
+  },
+  "result_sha256": "6db995cefeaeae4d31bbf421395146370635290a63b9026f104fc01cc6b055e5",
+  "code_sha256": {
+    "q1_q4": "c4c5c981c5d8604dc6a1e883425909386f3d9eba45f28523bfaf313f4fdcab1c",
+    "q5": "8260edff5dbcfd3e378de1afb67d2b319320fe1bb75328e8b0c3719a32c5d2fd"
+  },
+  "runtime_seconds_q5": 74.97457814216614,
+  "no_independent_reproduction_claim": true,
+  "environment": {
+    "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.4",
+    "pandas": "2.3.1",
+    "statsmodels": "0.15.0"
+  },
+  "created_utc": "2026-09-12T17:57:32.997367+00:00"
+}

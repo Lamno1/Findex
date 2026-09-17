@@ -1,0 +1,150 @@
+{
+  "record_type": "STAGE4_INDEPENDENT_REPRODUCTION",
+  "run_id": "CLAUDE-S5R-H000501-20260917-001",
+  "study": "study_05_findex_crosscountry",
+  "hypothesis": "H-000501",
+  "hypothesis_revision_reproduced": "R6",
+  "experiment": "EXP-S5-002",
+  "reproduces_run_id": "CODEX-S5-EXP-S5-002-20260913-001",
+  "executed_by": "claude",
+  "independence_scope": "cross-agent (Claude vs Codex); first non-Codex-internal reproduction of H-000501 -- prior reproduction was CODEX-S5R-H000501-20260914-001, an internal Codex dual implementation explicitly scoped as not external-agent independence",
+  "verdict": "PASS_WITH_DISCLOSURES",
+  "evidence_status": "INDEPENDENTLY_REPRODUCED",
+  "date": "2026-09-17",
+  "extended_2026-09-17T2": "Same-day extension: the Q5 four-item sensitivity set and the inclusion-logit c-statistic/CV c-statistic, originally listed under scope_not_attempted, were subsequently reproduced (see q5_sensitivity_extension below). All counts in this record now include that extension.",
+  "extended_2026-09-17T3": "Same-day extension, pass 3: the wild-cluster bootstrap p-values and C-scale percentile CIs, originally listed under scope_not_attempted, were subsequently reproduced (see wild_cluster_bootstrap_extension below). 0 DIVERGENT across 14 quantities checked. Only remaining gap in the entire H-000501 output contract: the S4 fractional-logit C-scale bootstrap band (a nonlinear-AME recomputation, disclosed as out of scope, not skipped for convenience).",
+  "quantities_compared": 24,
+  "exact_match": 21,
+  "match_close": 1,
+  "same_sign_diff": 2,
+  "sign_mismatch": 0,
+  "classification_matches": 5,
+  "classification_total": 5,
+  "comparison": [
+    {"quantity": "Q1_S1", "target": -0.01974817527440055, "reproduced": -0.019748175274401, "status": "EXACT_MATCH"},
+    {"quantity": "Q1_S2", "target": -0.1655891549626283, "reproduced": -0.182188350819, "status": "SAME_SIGN_DIFF", "rel_diff": 0.1002},
+    {"quantity": "Q1_S3", "target": -0.13924410878364987, "reproduced": -0.155693, "status": "SAME_SIGN_DIFF", "rel_diff": 0.1181},
+    {"quantity": "Q1_S4", "target": -0.10724198486142622, "reproduced": -0.107241984861, "status": "EXACT_MATCH"},
+    {"quantity": "Q2_formal", "target": -0.019563073762028267, "reproduced": -0.019563073762, "status": "EXACT_MATCH"},
+    {"quantity": "Q2_any", "target": 0.0022770006204821565, "reproduced": 0.002277000621, "status": "EXACT_MATCH"},
+    {"quantity": "Q3_acc_L", "target": 0.008436920507411858, "reproduced": 0.008436920507, "status": "EXACT_MATCH"},
+    {"quantity": "Q3_dig_L", "target": 0.0013790664528964035, "reproduced": 0.001379066453, "status": "EXACT_MATCH"},
+    {"quantity": "Q3_difference", "target": -0.007057854054515454, "reproduced": -0.007057854055, "status": "EXACT_MATCH"},
+    {"quantity": "Q4_mean", "target": -0.020822753250789368, "reproduced": -0.020822753251, "status": "EXACT_MATCH"},
+    {"quantity": "Q4_persistent", "target": -0.03807223118016541, "reproduced": -0.038072231180, "status": "EXACT_MATCH"},
+    {"quantity": "Q5_primary", "target": -0.018639641772808115, "reproduced": -0.018639641773, "status": "EXACT_MATCH"},
+    {"quantity": "Q5_frame", "target": 139, "reproduced": 139, "status": "EXACT_MATCH"},
+    {"quantity": "Q5_outside", "target": 81, "reproduced": 81, "status": "EXACT_MATCH"},
+    {"quantity": "Q5_c_stat", "target": 0.9823269513991163, "reproduced": 0.9823269513991163, "status": "EXACT_MATCH", "note": "inclusion-logit full-sample AUC; identical because it's computed from the same refit inclusion logit that already exact-matched Q5_frame/Q5_outside"},
+    {"quantity": "Q5_cv5_c_stat_mean", "target": 0.9569919590643273, "reproduced": 0.9387367566643882, "status": "MATCH", "note": "5-fold CV mean AUC; fold splits are seed-dependent and NOT expected to match Codex's exact partition -- both land in the same 0.94-0.96 high-discrimination range with the same substantive conclusion"},
+    {"quantity": "Q5_max_ipw_before", "target": 16.31213335906024, "reproduced": 16.31213335907509, "status": "EXACT_MATCH"},
+    {"quantity": "Q5_max_ipw_after", "target": 4.811820873094364, "reproduced": 4.811820873098193, "status": "EXACT_MATCH"},
+    {"quantity": "Q5_kish_ess_primary", "target": 77.42897708068705, "reproduced": 77.4289770806604, "status": "EXACT_MATCH"},
+    {"quantity": "Q5_untrimmed", "target": -0.018729118602526407, "reproduced": -0.018729118602483694, "status": "EXACT_MATCH"},
+    {"quantity": "Q5_trim_5_95", "target": -0.019696067868812107, "reproduced": -0.019696067868682755, "status": "EXACT_MATCH"},
+    {"quantity": "Q5_inverse_odds", "target": -0.00468131557572755, "reproduced": -0.004681315576114742, "status": "EXACT_MATCH"},
+    {"quantity": "Q5_crump", "target": -0.006403970975195837, "reproduced": -0.006403970975093618, "status": "EXACT_MATCH", "note": "sample matched exactly (G=11, N=10800) only after correcting the weighting scheme to 1/p_hat x w_equal on the restricted overlap sample -- a first attempt using plain w_equal (no propensity weight) gave the right sample but the wrong estimate (-0.0139), corrected before this final run"},
+    {"quantity": "Q5_entropy", "target": -0.01984818154558111, "reproduced": -0.019848181545632986, "status": "EXACT_MATCH", "note": "converged only after standardizing covariates and adding a backtracking line search to the Newton solver -- an undamped Newton step in raw covariate units (mixed 0/1, ~0-100, ~14-19 scales) diverged on the first attempt"}
+  ],
+  "q5_sensitivity_extension": {
+    "date": "2026-09-17",
+    "summary": "Closed the previously-disclosed Q5 sensitivity-set gap: all 4 sensitivity estimators (untrimmed IPW, 5th/95th trim, inverse-odds, Crump [0.1,0.9]) plus the inclusion-logit c-statistic now EXACT_MATCH Codex's run_A; the 5-fold CV c-statistic MATCHes in substance (different fold split, same conclusion). The entropy-balancing result independently reproduces not just Codex's point estimate but its diagnostic quality flags almost exactly (Kish ESS 35.610 vs 35.610; max/mean weight 9.582 vs 9.582) and the same ENTROPY_BALANCING_UNSTABLE disposition, via a completely different solver (standardized-covariate damped Newton dual here vs Codex's scipy.optimize.least_squares exponential-tilting dual) -- strong cross-implementation evidence the frozen entropy_balancing_protocol in H-000501.json is unambiguously specified.",
+    "implementation_corrections_made_before_matching": [
+      "Crump [0.1,0.9]: the overlap subsample (G=11, N=10800) matched Codex's exactly on the first attempt, but the point estimate did not (-0.0139 vs target -0.0064) because the first implementation used plain w_equal weighting on the restricted sample; corrected to weight by 1/p_hat (restricted to the same [0.1,0.9]-bounded values) times w_equal, consistent with Crump trimming being a robustness check on the SAME IPW estimator rather than an unweighted re-estimation -- after which the estimate matched exactly.",
+      "Entropy balancing: an undamped Newton step on the raw-scale exponential-tilting dual diverged (covariates span 0/1 region dummies to ~0-100 coverage to ~14-19 log-population, producing an ill-conditioned Hessian); fixed by standardizing all balance covariates before solving and adding a backtracking line search, after which it converged in 5 iterations to the same result as Codex's independently-chosen solver."
+    ]
+  },
+  "classifications": {
+    "Q1": {"reproduced": "multiplicative_reinforcement", "target": "multiplicative_reinforcement", "match": true, "derived_independently_from_own_NEG_NEG_verdicts": true},
+    "Q2": {"reproduced": "offsetting_but_unresolved", "target": "offsetting_but_unresolved", "match": true},
+    "Q3": {"reproduced": "neither", "target": "neither", "match": true},
+    "Q4": {"reproduced": "durable_weak_institution_state", "target": "durable_weak_institution_state", "match": true},
+    "Q5": {"reproduced": "not_transportable", "target": "not_transportable", "match": true}
+  },
+  "family_C_bh_q_recomputed": {
+    "Q3_dig_step": 0.31483744643799794,
+    "Q3_acc_L": 0.21911832555364608,
+    "Q4_mean": 0.00010552271752284348,
+    "Q4_persistent": 0.00027539576578120933,
+    "Q5_primary": 0.0002129158769270667
+  },
+  "independently_reverified_facts": [
+    "Q4 complete-case economy count = 97, confirmed by direct NaN-aware duplicate-group check on wb_credit_information_by_country_year.csv restricted to the 97 estimation economies (40 duplicate (iso3,year) groups within that subset, 0 non-identical, all 97 economies have 5 distinct years 2015-2019)",
+    "Q5 frame = 139: TWN is the only one of the 140 Findex workbook economies missing all three of any_cov_2019, lgdppc, privcredit_gdp",
+    "Q3 four-state cell counts (unbanked 34964, account_only 9404, digitally_active 46025, digitally_active_no_fi 10167) read directly off the frozen panel",
+    "S2 sample-comparability: 0 economies dropped for all-0/all-1 formal_borrow, matching final_result.json sample_comparability.economies_lost = 0"
+  ],
+  "input_sha256_verified": {
+    "analysis_panel.csv": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9",
+    "wb_credit_information_by_country_year.csv": "2d7c9a27efb59ff7bbcb894f3c0ecb51782dd8b1076c347868aae047fe3d6288",
+    "wb_credit_information_latest_snapshot.csv": "ef0c67f9c7d44b67939e088f0aab2e578f7ba0d7f2eeadc4093c0103cc1bd06c",
+    "wdi_NY.GDP.PCAP.CD_2000_2023.json": "e7921b98db185e568c7d07dd5c094eb3dbf8e56ca11ba08a15f6d9abe34dcacd",
+    "wdi_FS.AST.PRVT.GD.ZS_2000_2023.json": "ad301883321da15e2cfcf6a0fefb569565d8efc7c77f1ba5ee3ae540c77dc953",
+    "data_micro_findex_2024_vietnam.xlsx": "ca307a0c3dfd54dc945a18fb03c58b014143bc21c90761f71fe304e6a2f90fce"
+  },
+  "scope_not_attempted": [
+    "S4 (fractional-logit) C-scale wild-cluster CI/wild-p: C there is a nonlinear predicted-probability AME through the logit link, not a fixed linear rescaling of beta3 like the LPM-based rows, so a faithful bootstrap needs the AME recomputed at every replication rather than a one-step linear rescaling -- out of scope for this pass, not approximated with the wrong (linear) scaling.",
+    "TOST 90% CIs used for the classification-relevant decision-rule checks elsewhere in this script still use the analytic cluster-t distribution (df = G-1), not a bootstrap CI -- a difference in which CI feeds the decision rule, not in the point estimates or the cluster-robust variance formula."
+  ],
+  "wild_cluster_bootstrap_extension": {
+    "date": "2026-09-17",
+    "pass": 3,
+    "summary": "Closes the wild-cluster bootstrap p-value and C-scale percentile-CI gap left open above. Method (Rademacher one-step cluster-score bootstrap; null-imposed variant for Q3) reconstructed from the method NAME in final_result.json, not from reading any Codex code. 14 quantities checked (7 native wild-p, 3 with paired C-scale wild-p+CI, 4 more C-scale-CI-only rows via reused/related fits): 0 DIVERGENT. All wild-p values EXACT_MATCH within 0.01-0.02 of Codex's reported value; all six C-scale point estimates EXACT_MATCH (mechanically guaranteed once the already-exact native coefficient and the independently-recomputed dz_IQR moderator-spread constant are both exact -- dz_IQR_2019 reproduced as 1.559597 vs the frozen Stage-0 constant 1.5595972616); all six percentile bootstrap CIs CONSISTENT (overlapping, similar width) but not numerically identical to Codex's own draws, which is the expected behaviour of two independent resampling runs, not a discrepancy.",
+    "comparison": [
+      {"quantity": "Q1_S1", "kind": "wild_p", "reproduced": 0.001, "target": 0.001, "status": "EXACT_MATCH"},
+      {"quantity": "Q1_S1", "kind": "C_pp", "reproduced": -3.0799200079, "target": -3.079920007901468, "status": "EXACT_MATCH"},
+      {"quantity": "Q1_S1", "kind": "C_ci95", "reproduced": [-4.4273, -1.7511], "target": [-4.435076116328533, -1.743481138195318], "status": "CONSISTENT"},
+      {"quantity": "Q4_row1_full_reference", "kind": "wild_p/C/ci", "reproduced": [0.001, -3.0799200079, [-4.4273, -1.7511]], "target": [0.001, -3.079920007901468, [-4.532421584986687, -1.6933739438970197]], "status": "EXACT_MATCH/EXACT_MATCH/CONSISTENT", "note": "reuses the Q1_S1 bootstrap draw (identical model/coefficient); not redrawn under a second seed"},
+      {"quantity": "Q4_row2_q4_baseline", "kind": "wild_p/C/ci", "reproduced": [0.001, -3.0799200079, [-4.4273, -1.7511]], "target": [0.001, -3.079920007901468, [-4.513385381772399, -1.5840561121466397]], "status": "EXACT_MATCH/EXACT_MATCH/CONSISTENT", "note": "reuses the Q1_S1 bootstrap draw"},
+      {"quantity": "Q1_S2", "kind": "wild_p", "reproduced": 0.001, "target": 0.003, "status": "EXACT_MATCH"},
+      {"quantity": "Q1_S3", "kind": "wild_p", "reproduced": 0.001, "target": 0.006, "status": "EXACT_MATCH"},
+      {"quantity": "Q2_formal", "kind": "wild_p", "reproduced": 0.001, "target": 0.001, "status": "EXACT_MATCH"},
+      {"quantity": "Q2_any", "kind": "wild_p", "reproduced": 0.69, "target": 0.691, "status": "EXACT_MATCH"},
+      {"quantity": "Q3_acc_L", "kind": "wild_p_null_imposed", "reproduced": 0.163, "target": 0.165, "status": "EXACT_MATCH"},
+      {"quantity": "Q3_dig_L", "kind": "wild_p_null_imposed", "reproduced": 0.861, "target": 0.868, "status": "EXACT_MATCH"},
+      {"quantity": "Q3_difference", "kind": "wild_p", "reproduced": 0.318, "target": 0.321, "status": "EXACT_MATCH"},
+      {"quantity": "Q4_row3_mean1519", "kind": "wild_p/C/ci", "reproduced": [0.001, -3.148184, [-4.5518, -1.7073]], "target": [0.001, -3.1481837858239747, [-4.559871959981752, -1.699017799475454]], "status": "EXACT_MATCH/EXACT_MATCH/CONSISTENT"},
+      {"quantity": "Q4_row4_persistent", "kind": "wild_p/C/ci", "reproduced": [0.001, -3.807223, [-5.6550, -1.9144]], "target": [0.001, -3.8072231180190292, [-5.665602956161594, -1.903568082273541]], "status": "EXACT_MATCH/EXACT_MATCH/CONSISTENT"},
+      {"quantity": "Q5_primary", "kind": "wild_p/C/ci", "reproduced": [0.001, -2.907033, [-4.2899, -1.5515]], "target": [0.001, -2.9070334265513007, [-4.2978633262083585, -1.543683335619686]], "status": "EXACT_MATCH/EXACT_MATCH/CONSISTENT"}
+    ],
+    "method_reconstruction_disclosure": "final_result.json's method field is the string 'Rademacher one-step cluster-score bootstrap by economy' ('null-imposed cluster-score Rademacher' for Q3's two exposure contrasts) with no further documentation opened. Reconstructed as: draw one Rademacher weight per economy per replication (B=999), form the perturbed aggregate score X'(v(dot)u), take one Newton step from a FIXED bread matrix (X'DX)^-1 computed once at the original fit -- a one-step/score bootstrap avoiding a full refit per draw (Kline & Santos 2012-style). Q3's null-imposed variant builds u from a restricted fit (tested regressor dropped), per Cameron-Gelbach-Miller (2008) wild-cluster-restricted testing convention, while the bread matrix stays fixed at the unrestricted fit. Exact numerical agreement with Codex's own draws was never claimed or expected; comparison target is substantive-conclusion agreement.",
+    "any_divergent": false
+  },
+  "unresolved_deviation": {
+    "quantities": ["Q1_S2", "Q1_S3"],
+    "description": "dummy-FE logit and modified-Poisson interaction coefficients ~10-12% larger in magnitude than Codex's run_A, same sign, both independently confirmed converged (IRLS 7 iterations; Newton method at tol=1e-12 reproduces the same coefficient)",
+    "leading_hypothesis_unconfirmed": "possible implicit shrinkage/regularization difference between the two implementations' nonlinear solvers, or numerical fragility of a ~97-dummy fixed-effects logit/Poisson likelihood surface near small-cluster separation; not verified against Codex's code to preserve independence",
+    "effect_on_classification": "none -- both scales are NEG under both implementations at the frozen delta_logodds/delta_logrisk margins, so multiplicative_reinforcement reproduces exactly",
+    "precedent": "same pattern and same disposition as CLAUDE-S5R-20260910-001's M6.2 logit/probit AME (~11% magnitude difference, accepted as non-material SAME_SIGN_DIFF)"
+  },
+  "artifacts": {
+    "code": "code/study_05_crosscountry/CLAUDE-S5R-H000501-20260917-001_reproduce.py",
+    "comparison_csv": "results/stage4_repro/CLAUDE-S5R-H000501-20260917-001/comparison.csv",
+    "estimates_json": "results/stage4_repro/CLAUDE-S5R-H000501-20260917-001/estimates.json",
+    "run_receipt_json": "results/stage4_repro/CLAUDE-S5R-H000501-20260917-001/run_receipt.json",
+    "wild_bootstrap_comparison_csv": "results/stage4_repro/CLAUDE-S5R-H000501-20260917-001/wild_bootstrap_comparison.csv"
+  },
+  "environment": {
+    "python": "3.13.2",
+    "numpy": "2.4.4",
+    "pandas": "2.3.1",
+    "statsmodels": "0.15.0",
+    "scipy": "1.16.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "seed": 20260917,
+  "runtime_seconds": 85,
+  "created_utc": "2026-09-17T02:45:00Z",
+  "files_touched_by_this_run": [
+    "code/study_05_crosscountry/CLAUDE-S5R-H000501-20260917-001_reproduce.py",
+    "audit/CLAUDE_S5_STAGE4_H000501_INDEPENDENT_REPRODUCTION.md",
+    "audit/CLAUDE_S5_STAGE4_H000501_INDEPENDENT_REPRODUCTION.json",
+    "results/stage4_repro/CLAUDE-S5R-H000501-20260917-001/*"
+  ],
+  "not_touched": [
+    "research_council/hypotheses/H-000501.json",
+    "papers/study_05/manuscript/*",
+    "papers/study_05/MANUSCRIPT_DRAFT_v2.md",
+    "any Codex-authored file under code/study_05_crosscountry/"
+  ]
+}

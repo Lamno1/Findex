@@ -1,0 +1,31 @@
+{
+  "run_id": "CODEX-S5-SAMPLE-COMPOSITION-20260910-001",
+  "created_utc": "2026-09-10T11:57:53.974981+00:00",
+  "N": 100560,
+  "G": 97,
+  "economies_by_world_bank_region": {
+    "East Asia & Pacific (excluding high income)": 9,
+    "Europe & Central Asia (excluding high income)": 17,
+    "High income": 6,
+    "Latin America & Caribbean (excluding high income)": 16,
+    "Middle East & North Africa (excluding high income)": 10,
+    "South Asia": 5,
+    "Sub-Saharan Africa (excluding high income)": 34
+  },
+  "respondents_by_world_bank_region": {
+    "East Asia & Pacific (excluding high income)": 11677,
+    "Europe & Central Asia (excluding high income)": 16802,
+    "High income": 5878,
+    "Latin America & Caribbean (excluding high income)": 15351,
+    "Middle East & North Africa (excluding high income)": 9999,
+    "South Asia": 6995,
+    "Sub-Saharan Africa (excluding high income)": 33858
+  },
+  "high_income_economies": 6,
+  "high_income_respondents": 5878,
+  "coverage_below_10_economies": 24,
+  "coverage_below_10_respondents": 23458,
+  "coverage_below_10_respondent_share": 0.23327366746221162,
+  "panel_sha256": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9",
+  "code_sha256": "020bdc1e4fd084f4c6c7285a8aaf8088371f6a6fc4cbbd232b7ccb33110ee5d8"
+}

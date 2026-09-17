@@ -1,0 +1,680 @@
+%==============================================================================
+% BODY — ported from papers/study_05/MANUSCRIPT_DRAFT_v2.md (Codex-gate-passed,
+% CODEX-S5-MANUSCRIPT-GATE-20260910-001, verdict PASS_TO_TYPESETTING_WITH_LIMITATIONS).
+% No class-specific commands here: paste into the UEH template unchanged.
+% Headline numbers come from \input{estimates}; tables from \input{tables/*}.
+% The eight residual limitations from the Codex review are preserved verbatim in
+% Section 7 ("Residual limitations that must survive typesetting").
+%==============================================================================
+
+\begin{abstract}
+\noindent We ask whether digital-payment activity is associated with formal borrowing
+among adults, and whether that association is larger where credit-information coverage is
+thinner --- the individual-level analogue of the firm-level pattern documented by
+\citet{GalileaFaraziMare2026}. Using the 2024 Global Findex microdata for \NAdults{} adults
+in \NEconomies{} economies, we estimate survey-weighted linear probability models with
+economy fixed effects and economy-clustered standard errors, following a pre-registered
+plan. Making or receiving a digital payment is associated with a \MOneBeta{}
+percentage-point-higher probability of having borrowed from a formal financial institution
+in the past 12 months (95\% CI \MOneCIlo{}--\MOneCIhi{} pp), conditional on account
+ownership, demographics and economy fixed effects. The pre-registered moderation prediction
+is \textbf{not supported}: the interaction of digital-payment activity with \emph{lower}
+2019 credit-information coverage is negative (\MTwoBetaThree{} pp per economy-level standard
+deviation; 95\% CI \MTwoBetaThreeCIlo{} to \MTwoBetaThreeCIhi{} pp), the opposite of the
+hypothesised sign. For the registered coverage moderator, the negative interaction persists
+across weighting, sample and control-set changes and all \NEconomies{} leave-one-economy-out
+fits. The observed clustered precision gives an approximate 80\%-power minimum detectable
+interaction of \MDEpp{} pp per SD. Two alternative institutional proxies are imprecise and
+do not reproduce a significant reversal. The registered receive-versus-make mechanism and
+the informal-borrowing placebo also fail. We interpret the results as a cautious, non-causal
+external-population check that does not reproduce the credit-information-substitution reading
+at the individual level, and we discuss why a coverage floor and the account-access channel
+are plausible explanations. A pre-registered post-result diagnostic battery (H-000501) finds
+that the reversal also holds on the logit and modified-Poisson multiplicative scales --- so it
+is not an artifact of the additive percentage-point scale --- and persists when the moderator
+is replaced by a 2015--2019 measure; a parallel decomposition of the exposure into account
+access and digital-payment use is inconclusive. We report Vietnam's position in the
+cross-country distribution for local context.
+
+\medskip
+\noindent\textbf{Keywords:} digital payments, financial inclusion, formal borrowing, credit
+information, Global Findex, pre-registration. \quad\textbf{JEL:} G21, G51, O16, D14.
+\end{abstract}
+
+\section{Introduction}
+
+Digital payments have become widely used in low- and middle-income economies: the 2024
+Global Findex shows that a majority of adults make or receive at least one digital payment
+\citep{KlapperSingerStaritaNorris2025}. A recurring policy claim is that the transaction
+record such payments generate can serve as an alternative credit signal, extending formal
+credit to borrowers whom traditional credit-information systems do not cover.
+\citet{GalileaFaraziMare2026} provide the most direct evidence for this idea: across 101
+economies, firms that use electronic payments report weaker credit constraints, and the
+association is stronger where credit-information depth is lower --- consistent with
+electronic-payment records substituting for a missing credit file.
+
+Whether the same pattern generalises to \emph{individuals} remains an open empirical
+question. Our targeted, non-systematic search found no prior multi-country individual-level
+test of the exact Findex interaction, but cannot establish priority. Individuals face
+different lenders, different products and different information technologies than firms, and
+the Global Findex --- the natural data source at the individual level --- has been used
+mainly to describe digital-payment adoption and broad financial-inclusion outcomes rather
+than to test this specific moderation. \citet{BergBurgGombovicPuri2020} show that
+digital-footprint variables can predict individual default and add information to a
+credit-bureau score. Their complementarity result is a competing explanation, not evidence
+for our pre-registered substitution prediction, and their setting is a single e-commerce
+lender in one country. \citet{BazarbashBeaton2020} relate cross-country fintech credit to
+financial development and information infrastructure using provider-level data, again not at
+the individual level.
+
+This paper runs a pre-registered individual-level test. We do \textbf{not} claim novelty of
+the question or of the method; we position the exercise as an individual-level descriptive
+analogue and an external-population check of the established firm-level pattern. Three
+features discipline the exercise. First, the full analysis plan --- sample, variables,
+specifications, robustness checks, multiple-testing correction and decision rules --- was
+frozen and hash-committed before any outcome model was estimated. Second, the primary
+results were produced by one implementation and then independently reproduced by a separate
+cold implementation that did not see the first; 41 of 44 compared quantities match to better
+than $5\times10^{-13}$. Third, the decision rules were written to make a null or contrary
+interaction a valid, reportable outcome rather than a failure.
+
+The pre-registration matters because the headline result is a contrary one. We find that
+digital-payment activity is positively associated with formal borrowing within economies
+(\MOneBeta{} pp, 95\% CI \MOneCIlo{}--\MOneCIhi{}), but that this association is
+\textbf{smaller}, not larger, in economies where 2019 credit-bureau and credit-registry
+coverage was lower (interaction \MTwoBetaThree{} pp per standard deviation, 95\% CI
+\MTwoBetaThreeCIlo{} to \MTwoBetaThreeCIhi{}). The sign reversal is robust to unweighted and
+population weights, to excluding high-income economies, to adding country-level macro
+controls and their interactions, to dropping zero-coverage economies, to leaving out each of
+seven world regions, and to leaving out each of the \NEconomies{} economies one at a time.
+The depth and legal-rights proxies are statistically imprecise and do not establish a
+general institutional gradient. The registered mechanism split (receiving versus making
+payments) and the informal-borrowing placebo also do not behave as the substitution reading
+predicts.
+
+Our contribution is therefore an honest, reproducible negative result. At the individual
+level, in this cross-section, the cross-country pattern that motivates the
+digital-footprint-substitution policy narrative does not appear; if anything the data show
+the opposite gradient. We evaluate plausible explanations --- a coverage floor in the
+thinnest-coverage economies, and the possibility that in those economies digital-payment
+activity mainly proxies for basic account access rather than for an incremental credit
+signal --- and we are explicit about what the design cannot rule out.
+
+\section{Related literature and positioning}
+
+\paragraph{Firm-level evidence.} \citet{GalileaFaraziMare2026} is the closest paper. Using
+World Bank Enterprise Survey data for 101 economies, they document that electronic-payment
+use is associated with weaker firm credit constraints and that the association is larger
+where the depth-of-credit-information index is lower. Our design mirrors theirs at the
+individual level: same broad hypothesis, same moderation logic, different unit and different
+data. Their robustness section changes firm-level outcomes, payment instruments, fixed
+effects and controls within the Enterprise Surveys; neither the paper nor its robustness
+appendix uses Global Findex or estimates an individual-level borrowing specification. Thus
+it sharpens, rather than duplicates, the external-population test conducted here.
+
+\paragraph{Digital footprints and credit.} \citet{BergBurgGombovicPuri2020} show that easily
+accessible digital-footprint variables match or exceed a credit bureau score in predicting
+consumer default at a German e-commerce lender and, crucially, complement rather than
+replace bureau information. This establishes that the \emph{information content} of a
+digital trace can be real; it does not establish that the trace expands formal borrowing at
+the population level, still less that the effect concentrates where bureaus are thin.
+
+\paragraph{Cross-country digital credit.} \citet{BazarbashBeaton2020} find a market-level
+gap-filling pattern, while \citet{CornelliEtAl2023} conclude that fintech and big-tech
+credit complement rather than substitute for bank credit. Both study aggregate provider
+volumes rather than an individual borrower's use of formal credit. The disagreement suggests
+that substitution and complementarity can depend on the level of analysis and the lending
+channel.
+
+\paragraph{Closest individual-level evidence.} \citet{AlokGhoshKulkarniPuri2024} study
+India's UPI rollout with a causal design and find credit growth concentrated in places where
+account access was more recent; only fintech lenders expanded lending to new-to-credit
+borrowers. Their within-country setting, treatment and outcomes differ sharply from ours,
+but the result makes basic formal-system access a serious competing explanation for the
+cross-country gradient.
+
+\paragraph{Global Findex.} \citet{KlapperSingerStaritaNorris2025} and the associated
+database document the rapid adoption of digital payments and its correlation with account
+ownership and with saving and borrowing behaviour. The database is descriptive by
+construction. We use it for a specific pre-registered moderation test rather than for
+adoption description.
+
+\paragraph{Positioning.} We claim only an individual-level descriptive analogue and
+external-population check of the \citeauthor{GalileaFaraziMare2026} pattern. A targeted
+search found no prior individual-level, multi-country Findex study of this exact
+interaction, but search coverage is incomplete and does not justify a categorical priority
+claim. We make no causal or mechanism-identification claim; novelty remains a candidate
+distinction rather than an established fact.
+
+\paragraph{Information-economics basis.} The registered prediction follows the standard
+adverse-selection logic: when conventional borrower information is scarce, an additional
+verifiable signal can have greater screening value. The reverse gradient can nevertheless
+arise without contradicting that logic if thin-coverage markets also have weaker capacity to
+process payment traces, if digital activity mainly identifies entry into the formal system,
+or if realised borrowing is rationed on the supply side. These alternatives motivate the
+post-result diagnostics; they were not confirmatory mechanisms specified before H-000500.
+
+\section{Data}
+
+\subsection{Individual data}
+
+The individual data are the 2024 wave of the World Bank Global Findex microdata
+(\url{https://microdata.worldbank.org/catalog/7860}; DOI 10.48529/bk9n-8r43; SHA-256
+\texttt{ca307a0c\ldots f90fce}). The borrowing and digital-payment module was administered
+in 98 of the 140 released economies; the reduced questionnaire elsewhere omits the outcome.
+Our unit of observation is an adult aged 15 or older within an economy.
+
+\begin{itemize}
+\item \textbf{Outcome} \texttt{formal\_borrow}: one if the respondent reports having
+borrowed from a bank or another type of formal financial institution in the past 12 months
+($\mathit{fin22a}=1$), zero if not ($\mathit{fin22a}=2$); ``don't know'' and ``refused'' are
+dropped.
+\item \textbf{Exposure} \texttt{anydigpayment}: one if the respondent made or received at
+least one digital payment in the past 12 months, zero otherwise.
+\item \textbf{Mechanism split} (secondary): \texttt{receive\_dig}, one if the respondent
+received any of wages, government transfers, a pension or an agricultural payment into an
+account; \texttt{make\_dig}, one if the respondent made a digital merchant payment or paid a
+utility bill from an account. Unknown responses are treated as missing, never as zero, and
+are dropped only for the mechanism regressions.
+\item \textbf{Controls} (frozen primary set): account ownership at a financial institution,
+an indicator for female, age centred and its square, three education categories, five
+within-economy income quintiles, and an urban indicator.
+\end{itemize}
+
+\subsection{Country moderator}
+
+The moderator is the country's \textbf{2019 credit-information coverage}: the maximum of the
+2019 private credit-bureau coverage and the 2019 public credit-registry coverage, in percent
+of adults, from the archived World Bank Doing Business series
+(\texttt{IC.CRED.ACC.PRVT.CRD.ZS}, \texttt{IC.CRED.ACC.PUBL.CRD.REG.COVR.ZS}; snapshot
+SHA-256 \texttt{ef0c67f9\ldots bd06c}). We denote its negative $z$-score, computed across
+the estimation economies, \lowcovz, so that higher values mean thinner 2019 coverage.
+Across the \NEconomies{} estimation economies the raw coverage measure has a cross-economy
+(unweighted) mean of 41.5\%, a median of \SampleMedianCoverage\%, and a wide spread
+(\ThinCoverageEconomies{} economies below 10\%). The depth-of-credit-information index and
+the strength-of-legal-rights index, both 2019 vintage, are used as distinct robustness
+proxies, not as the same construct.
+
+The moderator is measured five years before the outcome. Credit infrastructure is
+slow-moving, so this is a defensible historical measure, but we treat the vintage mismatch
+as a limitation and never describe the moderator as the contemporaneous 2024 system.
+
+The source also requires an integrity qualification. The World Bank paused and later
+discontinued \emph{Doing Business} after reviews of irregular data changes in the 2018 and
+2020 report cycles. The Bank's December 2020 review specifically identified \emph{Getting
+Credit} irregularities for China (DB2018) and Saudi Arabia (DB2020), both present in our
+estimation sample. Our moderator uses archived 2019-vintage coverage fields rather than an
+overall rank, so the review does not by itself establish that every value used here is
+erroneous. We nevertheless treat the history as a measurement-risk warning and report a
+sensitivity that excludes both economies.
+
+As a partial external check, the 2019 bureau- and registry-coverage, depth and legal-rights
+values were cross-validated against the published \emph{Doing Business 2020} economy
+profiles for eight contrasting economies (Vietnam, Afghanistan, Kenya, Georgia, China, South
+Africa, Saudi Arabia and Panama), and Vietnam's 2019 bureau coverage was additionally
+confirmed against a live World Bank API query; all matched the archived snapshot, including
+the extreme values (zero-depth Afghanistan, full-coverage Georgia and China). This does not
+rule out error in the economies not checked, and the broad measurement-risk limitation
+stands.
+
+\subsection{Country controls (robustness only)}
+
+For one robustness specification we add, at the economy level, log GDP per capita and
+domestic credit to the private sector (\% of GDP), each the latest World Bank observation no
+later than 2023, and the in-sample economy account-ownership rate, together with their
+interactions with digital-payment activity. GDP per capita is 2023 for every economy; the
+private-credit series has heterogeneous vintages (2008--2023), which we disclose.
+
+\subsection{Sample construction}
+
+Table~\ref{tab:sample} records the deterministic sample. Requiring a valid formal-borrowing
+response leaves 102{,}644 adults in 98 economies. Requiring complete primary covariates
+removes a further 2{,}084 adults and one economy (Lesotho, whose income-quintile variable is
+entirely missing). The moderator merges to every remaining economy by ISO3 code. The
+estimation sample is \textbf{\NAdults{} adults in \NEconomies{} economies}; the mechanism
+sub-sample, which additionally requires non-missing receive and make indicators, is
+\NMechAdults{} adults in \NMechEconomies{} economies. Vietnam contributes 998 respondents.
+
+A post-result missingness audit confirms that the \MissingAnyN{} exclusions are not uniform
+across the coverage distribution: missing income quintile is concentrated in one coverage
+quartile and causes the sole economy exit. We therefore do not treat complete-case selection
+as missing completely at random. The audit reports education, income-quintile and urbanicity
+missingness by coverage quartile and World Bank region; it diagnoses, but cannot correct,
+possible differential selection.
+
+\input{tables/tab_sample}
+
+Raw rates (survey-weighted): \RawRateNoDig\% of adults with no digital payment have borrowed
+formally, against \RawRateDig\% of adults with a digital payment --- an unadjusted gap of
+about \RawGap{} percentage points, which the regressions below reduce to \MOneBeta{} pp once
+account ownership, demographics and economy fixed effects are held fixed.
+
+The \NEconomies{}-economy frame spans all seven World Bank regions represented by the
+module: \RegionSSA{} economies are in Sub-Saharan Africa, \RegionECA{} in Europe and Central
+Asia, \RegionLAC{} in Latin America and the Caribbean, \RegionMENA{} in the Middle East and
+North Africa, \RegionEAP{} in East Asia and the Pacific, \RegionSA{} in South Asia, and
+\RegionHIC{} are classified as high income. The \ThinCoverageEconomies{} economies with
+coverage below 10\% contribute \ThinShareN{} respondents, or \ThinSharePct\% of the
+estimation rows. These are unweighted sample counts; the primary estimator gives every
+economy equal total weight.
+
+\input{tables/tab_descriptives}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{F1_country_gap}
+\caption{Economy-level raw (survey-weighted) gap in formal borrowing between adults with and
+without a digital payment, against 2019 credit-information coverage. One point per economy;
+the fitted line is a simple OLS through the economy points; Vietnam is marked. Source:
+2024 Global Findex; \NEconomies{} economies.}
+\label{fig:country_gap}
+\end{figure}
+
+\section{Empirical strategy}
+
+All specifications were frozen in the pre-registration and hash-committed before estimation.
+
+\subsection{Primary specification}
+
+For adult $i$ in economy $c$, let $y_{ic}$ be formal borrowing, $D_{ic}$ digital-payment
+activity, $A_{ic}$ account ownership, and $L_c$ the lower-2019-coverage moderator
+(\texttt{lowcov2019\_z}). We estimate, by weighted least squares,
+\begin{align}
+y_{ic} ={}& \beta_1 D_{ic} + \beta_2 A_{ic} + X_{ic}'\gamma + \delta_c + \varepsilon_{ic}
+  \tag{M1}
+\end{align}
+and, for the moderation test,
+\begin{align}
+y_{ic} ={}& \beta_1 D_{ic} + \beta_3\,(D_{ic}\times L_c)
+  + \beta_2 A_{ic} + \beta_4\,(A_{ic}\times L_c)
+  + X_{ic}'\gamma + \delta_c + \varepsilon_{ic}.
+  \tag{M2}
+\end{align}
+Here $X$ is the frozen control set, $\delta_c$ are economy fixed effects (which absorb the
+moderator's main effect), and weights \texttt{w\_equal} make each economy sum to one, so the
+estimand is the average within-economy association with economies weighted equally. Standard
+errors are clustered by economy (\NEconomies{} clusters); we also report Rademacher
+wild-cluster-bootstrap $p$-values (999 replications). \textbf{$\beta_3$ is the pre-registered
+test.} $\beta_3>0$ would mean the digital-payment/formal-borrowing association is stronger
+where 2019 coverage was thinner.
+
+The linear probability model is primary because its interaction is directly interpretable in
+percentage points and remains estimable with the registered fixed effects and weights. This
+choice is not innocuous: \LPMBelowZeroN{} fitted observations (\LPMOutsidePct\%) fall below
+zero, although none exceeds one. We therefore use logit, modified Poisson and fractional-logit
+diagnostics to test whether the reverse gradient is confined to the additive scale; it is not.
+
+\subsection{Pre-registered decision rule}
+
+The frozen rule: H-000500 is \emph{supported} only if $\beta_3>0$, significant at 5\%, and
+robust to the below-median moderator contrast, the bureau/registry joint test, alternative
+weighting, dropping high-income economies, the depth and legal-rights proxies, and
+country-level controls, and if the mechanism split shows the receive interaction positive.
+$\beta_3\approx0$ or $\beta_3<0$ means \emph{not supported}, to be reported plainly. A
+non-null placebo interaction for informal borrowing also undermines the substitution
+reading.
+
+\subsection{Secondary and robustness specifications}
+
+The plan specifies: a below-median moderator contrast (M2b); a bureau/registry joint test
+(M2c); the receive-versus-make mechanism split (M3); three secondary outcomes with
+Benjamini--Hochberg control over a frozen nine-hypothesis family (M4); four heterogeneity
+interactions (M5); a ten-branch robustness grid (M6, including unweighted and population
+weights, dummy-variable logit/probit, dropping high-income economies, the depth and
+legal-rights proxies, country controls, a minimum economy-size filter, an internet-use
+control, an economy-block bootstrap, a leave-one-economy-out sweep and an employment
+control); and a descriptive Vietnam-positioning exercise (M7). Adversarial checks (drop each
+control, restrict to account holders, drop zero-coverage economies, drop the lowest coverage
+quartile, leave out each region, and a moderator sign-reversal algebra check) were run after
+estimation.
+
+\subsection{Interpretation limits}
+
+The design is a single cross-section. Economy fixed effects remove all fixed cross-country
+confounding but do not identify the effect of digital-payment use or of the moderator, and
+do not make the cross-level interaction causal. Digital-payment activity and formal
+borrowing are mechanically linked through account ownership, which we condition on but which
+is itself a possible common consequence. We therefore use associational language throughout
+and prohibit causal, policy-effect and mechanism-identification claims.
+
+\section{Results}
+
+\subsection{The association}
+
+Digital-payment activity is associated with a \textbf{\MOneBeta{} percentage-point} higher
+probability of formal borrowing (M1; economy-clustered SE \MOneSE{} pp;
+$p\approx 3\times10^{-10}$; 95\% CI \MOneCIlo{}--\MOneCIhi{} pp; wild-cluster-bootstrap
+$p=0.001$; \NAdults{} adults, \NEconomies{} economies). Against a sample formal-borrowing
+rate of about \FormalBorrowMean\%, this is an association of roughly 40\% of the mean. It is
+a within-economy, covariate-adjusted association, not a causal effect.
+Table~\ref{tab:primary} reports M1 and M2 in full.
+
+\input{tables/tab_primary}
+
+M2 has within-$R^2=\WithinRtwoBase{}$ and overall $R^2=\OverallRtwo{}$. The low within
+fit is unsurprising for a rare, self-reported individual outcome and does not by itself bias
+the interaction coefficient; it does mean that the model is not a borrowing-prediction tool
+and that most individual variation remains unexplained. Inference rests on the sampling and
+error assumptions, not on a high $R^2$.
+
+\subsection{The pre-registered moderation test (H-000500)}
+
+The moderation prediction is \textbf{not supported, with the interaction carrying the
+opposite sign}. In M2 the interaction of digital-payment activity with lower 2019
+credit-information coverage is \textbf{\MTwoBetaThree{} percentage points} per one
+economy-level standard deviation (economy-clustered SE \MTwoBetaThreeSE{} pp;
+$p\approx 6.8\times10^{-5}$; 95\% CI \MTwoBetaThreeCIlo{} to \MTwoBetaThreeCIhi{} pp;
+wild-cluster-bootstrap $p=0.001$). The digital-payment/formal-borrowing association is
+therefore \emph{weaker}, not stronger, in economies with thinner 2019 coverage --- the
+reverse of the credit-information-substitution prediction. The below-median contrast (M2b)
+agrees: the association is \MTwoBmedianBeta{} pp smaller in economies below the coverage
+median (SE \MTwoBmedianSE{} pp; $p\approx 9.3\times10^{-5}$).
+
+The observed clustered precision implies an approximate conventional 80\%-power minimum
+detectable interaction of \MDEpp{} pp per SD at a two-sided 5\% level, and the 95\% interval
+is entirely negative, so within this specification the data reject not only the registered
+positive prediction but any non-negative interaction. This is a model-based precision
+statement, not evidence that the true structural effect is negative.
+
+Under the frozen decision rule this places H-000500 in the \emph{not supported} branch. We
+do not relabel the reverse pattern as a confirmation of a different hypothesis; it was not
+pre-registered.
+
+\subsection{Robustness of the registered coverage result}
+
+For the registered coverage moderator, the negative interaction persists across the
+pre-registered weighting, sample and control-set branches and the adversarial
+specifications (Table~\ref{tab:robustness}). The alternative depth and legal-rights proxies
+do not yield statistically significant interactions and therefore do not generalise the
+reversal to other institutional constructs.
+
+\input{tables/tab_robustness}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{F2_leave_one_out}
+\caption{Leave-one-economy-out estimates of the M2 interaction $\beta_3$. Each point drops a
+single economy and re-estimates; the dashed line is the full-sample estimate and the grey
+line marks zero. All \NEconomies{} fits are negative.}
+\label{fig:loo}
+\end{figure}
+
+Dummy-variable logit and probit give negative interaction average marginal effects
+(approximately $-1.35$ and $-1.36$ pp from the primary run; the independent reproduction
+obtains $-1.50$ and $-1.47$ pp, the same sign with a larger magnitude); the sign, not the
+precise magnitude, is the informative quantity from these non-linear models. The
+specifications that do not reach significance are those that also lose precision by
+construction: the account-holders-only restriction and the two alternative moderator
+constructs. Of the latter, the depth-of-credit-information proxy keeps the negative sign
+($-0.525$ pp); only the legal-rights proxy turns positive ($+0.705$ pp), and it is far from
+significant ($p\approx 0.24$) and measures strength of legal rights rather than coverage. No
+coverage-based specification reverses toward the hypothesised sign.
+
+One threat the frozen plan does not address is composition: M2 interacts only
+digital-payment activity and account ownership with the moderator, so if the covariate mix
+of digital-payment users varies with country coverage the interaction could be an artifact.
+As a post-registration check, outside the frozen quantity set, we add each control
+interacted with \lowcovz{} to M2. The interaction attenuates to \CtrlxModBeta{} pp per SD
+(economy-clustered SE \CtrlxModSE{} pp; $p\approx\CtrlxModP$; 95\% CI \CtrlxModCIlo{} to
+\CtrlxModCIhi{}) --- about a fifth of the baseline magnitude is absorbed once the control
+slopes are allowed to vary with coverage, consistent with a compositional contribution ---
+but it keeps its sign and significance. The reversal is therefore not a compositional
+artifact of the control set, though composition plausibly accounts for part of the
+gradient. A separate implementation reproduces this result within numerical tolerance. The
+within-$R^2$ rises only from \WithinRtwoBase{} to \WithinRtwoFull{} (a single-implementation
+diagnostic whose baseline value matches the frozen Stage-2 run exactly); we report this
+transparent coefficient-stability comparison instead of treating a scalar selection bound as
+identification for a cross-level interaction in a binary-outcome fixed-effects model.
+
+\subsection{Post-result diagnostic battery (H-000501)}
+
+After H-000500 had been rejected, we froze H-000501 to diagnose the reverse gradient without
+reopening the original hypothesis. On their native multiplicative scales, both the fixed-effects
+logit and modified-Poisson interactions are negative; the registered classification is therefore
+\emph{multiplicative reinforcement}, rather than an additive percentage-point artifact
+(Table~\ref{tab:h501}). The channel diagnostic is \emph{offsetting but unresolved}: the formal
+interaction is negative, the previously known informal interaction is positive, and the
+any-borrowing interaction is too imprecise to establish equivalence. The exposure decomposition
+is classified \emph{neither}; neither registered exposure contrast survives its multiplicity
+rule. Replacing the 2019 snapshot with 2015--2019 mean and persistent-low measures retains the
+negative gradient (\emph{durable weak-institution state}). Finally, the registered selection
+transport exercise fails common support and is classified \emph{not transportable}; its weighted
+coefficient is reported as a sensitivity, not as a population-generalised estimate. These are
+post-result diagnostics, not causal or mechanism-identification findings.
+
+\input{tables/tab_h501_diagnostics}
+
+\subsection{Mechanism and placebo}
+
+The registered receive-versus-make mechanism (M3) does not behave as the substitution
+reading predicts (Table~\ref{tab:mechanism}). In M3a the making-payment coefficient
+(\MThreeAMake{} pp) exceeds the receiving-payment coefficient (\MThreeAReceive{} pp),
+contrary to the prediction that incoming, lender-visible payments matter more. In M3b the
+receive interaction is essentially zero (\MThreeBReceive{} pp, $p\approx\MThreeBReceiveP$)
+while the make interaction is \MThreeBMake{} pp ($p\approx 6\times10^{-5}$). The
+informal-borrowing placebo (M4) also fails: the interaction for borrowing from family or
+friends is \textbf{positive} (\InformalBetaThree{} pp, $p\approx\InformalBetaThreeP$;
+Benjamini--Hochberg $q\approx\InformalBetaThreeQ$; \InformalN{} adults), where the
+substitution reading predicts it to be approximately zero (Table~\ref{tab:secondary}).
+Taken together, the secondary results give no support to a credit-information-substitution
+interpretation even though some of the individual coefficients are statistically
+distinguishable from zero.
+
+\input{tables/tab_mechanism}
+\input{tables/tab_secondary}
+
+\subsection{Numerical reproduction and its independence boundary}
+
+The primary and robustness results were produced by one AI-assisted implementation and then
+numerically reproduced by a separate Claude-generated cold implementation written from the
+frozen contracts alone. This is implementation-level agreement, not reproduction by an
+independent human research team. Of 44 compared
+quantities, 41 match to an absolute difference below $5\times10^{-13}$ (largest
+$4.8\times10^{-13}$), including M1, the M2 interaction, M2b, the mechanism split, every
+secondary outcome, the full robustness grid, and every adversarial check. The three that
+differ belong to two non-primary diagnostics --- the M2c joint-test statistic form, and the
+logit and probit interaction marginal effects --- and differ in magnitude but not in sign or
+conclusion. The reproduction verdict is PASS. The post-registration China/Saudi-Arabia
+integrity sensitivity was likewise reproduced by a separate implementation to an absolute
+difference of $5\times10^{-14}$.
+
+The post-result H-000501 diagnostic battery (\S5.4) was, at first typesetting, checked only by
+a Codex-internal dual implementation, not by a second agent. A subsequent independent
+Claude-written implementation, built from the frozen H-000501 contracts without opening any
+Codex H-000501 code, reproduces 12 of the same 14 registered headline quantities to within
+numerical noise and reaches all five registered classifications from its own independently
+estimated coefficients rather than by copying the labels. The two exceptions --- the
+dummy-fixed-effects logit and modified-Poisson interaction coefficients --- are 10--12\% larger
+in magnitude under the independent implementation, same sign, with both estimators
+independently confirmed converged; this does not change the decisive Q1 classification, since
+both scales remain negative under either implementation. The four Q5 sensitivity estimators
+(untrimmed weighting, alternative trimming, inverse-odds weighting, and Crump et al.\ 2009
+propensity trimming) and the inclusion-logit $c$-statistic were subsequently also reproduced,
+all matching exactly; the 5-fold cross-validated $c$-statistic matches in substance (a
+different, seed-dependent fold partition lands in the same high-discrimination range). The
+entropy-balancing estimate reproduces not only Codex's point estimate but its diagnostic
+quality flags (Kish effective sample size, maximum-to-mean weight ratio) under a different
+solver, arriving at the same unstable-calibration disposition --- independent evidence that
+the frozen entropy-balancing protocol is specified unambiguously rather than solver-dependent.
+
+\section{Vietnam in the cross-country distribution}
+
+This section is descriptive; it makes no claim about a Vietnam-specific effect. Vietnam's
+2019 credit-information coverage is \VnmCoverage\% (public registry 59.4\%, private bureau
+20.6\%), above the \NEconomies{}-economy median of \SampleMedianCoverage\% --- Vietnam is a
+\emph{higher-coverage} economy on this measure, with a maximum-score
+depth-of-credit-information index of 8. Evaluated at Vietnam's value of the moderator, the
+fitted M2 slope of formal borrowing on digital-payment activity is approximately
+$+\VnmSlope$ pp (95\% CI \VnmSlopeCIlo--\VnmSlopeCIhi{} pp; delta method). This is the
+cross-country pattern read at Vietnam's 2019 coverage level, not an estimate of what digital
+payments do in Vietnam. Both the point estimate and the interval are now persisted
+(\texttt{CLAUDE-S5R-M7-VNM-CI-20260910-001}); the point estimate matches the primary run to
+twelve decimal places, and the interval is a descriptive diagnostic (M7) outside the frozen
+quantity set.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{F3_implied_association}
+\caption{M2-implied digital-payment/formal-borrowing association across the range of the
+2019 coverage moderator (higher $x$ = thinner coverage), with a pointwise 95\% band.
+Vietnam's position is marked. The slope of this line is the pre-registered interaction
+$\beta_3=\MTwoBetaThree$ pp per SD.}
+\label{fig:implied}
+\end{figure}
+
+\section{Discussion}
+
+\paragraph{Why might the association be weaker, not stronger, where coverage is thin?} Three
+explanations are consistent with the evidence and with the design's limits.
+
+\emph{A coverage floor.} In the \ThinCoverageEconomies{} economies with 2019 coverage below
+10\%, credit-information systems are close to absent for everyone; there is little
+cross-sectional room for a digital-payment record to ``substitute'' at the margin, and
+formal borrowing in these economies is low and concentrated among a small, selected group.
+Dropping the zero-coverage economies and the lowest coverage quartile does not remove the
+negative interaction, which argues against this being the whole story, but a non-linear
+coverage relationship remains plausible. The pre-registered H-000501 diagnostic (\S5.4) adds
+one more constraint on this story: the reversal is negative on both the logit and
+modified-Poisson multiplicative scales, not only on the additive percentage-point scale, which
+rules out a pure base-rate / additive-scale-artifact reading of the coverage floor --- though
+it does not by itself distinguish a floor effect from any other multiplicative-scale
+explanation.
+
+\emph{The account-access channel.} Where formal financial infrastructure is thin, holding an
+account and using digital payments may principally mark inclusion in the formal system at
+all, rather than an incremental, lender-legible signal on top of an existing credit file.
+The account-holders-only restriction shrinks the interaction toward zero and renders it
+imprecise, which is consistent with composition --- including non-account holders ---
+accounting for part of the gradient. The fully interacted-control check also shows partial
+attenuation. These clues make the account-access channel a plausible interpretation, but
+neither identifies it: the restriction is imprecise and conditions on a possible collider,
+while coefficient attenuation can have several causes. The pre-registered H-000501 exposure
+decomposition (\S5.4, Q3) was designed to test exactly this channel by splitting the
+unbanked-to-account and account-to-digital steps; neither contrast reaches significance after
+multiplicity correction (\emph{neither}, Table~\ref{tab:h501}), so that test could not
+adjudicate the account-access hypothesis either way. We therefore treat account access as a
+hypothesis for future, better-powered data, not the paper's mechanism finding.
+
+\begin{figure}[htbp]
+\centering
+\fbox{\begin{minipage}{0.88\linewidth}\centering
+Unobserved financial inclusion / demand $\longrightarrow$ Account ownership
+$\longrightarrow$ Digital-payment activity\\[3pt]
+Unobserved financial inclusion / demand $\longrightarrow$ Formal borrowing\\[3pt]
+Formal borrowing $\longrightarrow$ Account ownership and digital-payment activity (possible reverse path)
+\end{minipage}}
+\caption{Identification sketch. Account ownership may be a mediator, a shared consequence,
+or a collider between unobserved inclusion/demand and the measured exposure. The dashed arrow
+shows the plausible reverse path in which obtaining formal credit induces account opening and
+subsequent digital-payment use. The cross-section cannot order these paths.}
+\label{fig:dag}
+\end{figure}
+
+Reverse causality is therefore concrete rather than merely generic: loan origination can require
+or encourage opening an account, and repayment or disbursement can itself generate digital
+transactions. Conditioning on contemporaneous account ownership cannot distinguish that path
+from a path running from payment activity to borrowing, and may open a collider path when
+unobserved formal-system access affects both. No coefficient in this paper resolves the direction.
+
+\emph{Supply-side heterogeneity.} Lenders in thin-coverage economies may not have the
+systems to act on a digital-payment history even when it exists; the firm-level result may
+reflect relationship-lending technologies that individual retail lending in these settings
+lacks. We cannot test this with Findex.
+
+\paragraph{Reconciling with \citet{GalileaFaraziMare2026}.} The unit differs (firms versus
+individuals), the outcome differs (self-reported credit constraints versus realised formal
+borrowing), the moderator differs (depth index versus coverage), and the lending
+technologies differ. A contrary individual-level cross-section does not contradict their
+firm-level finding; it bounds its external validity.
+
+\paragraph{Policy boundary.} The rejected moderation prediction does not imply that digital
+payments fail to improve access, that credit reporting is unimportant, or that payment data
+cannot aid underwriting. It says only that this 2024 individual cross-section does not show
+a larger conditional payment--borrowing association in economies with thinner archived 2019
+coverage.
+
+\paragraph{Residual limitations that must survive typesetting.} The following limitations
+are carried verbatim from the independent adversarial review and are not weakened anywhere
+in this paper:
+\begin{itemize}
+\item The design is a single cross-section; reverse causality and selection remain.
+\item The cross-level interaction is identified by \NEconomies{} economy values of an
+archived 2019 moderator, not by \NAdults{} independent country observations.
+\item The Doing Business checks establish agreement with archived profiles/live World Bank
+data, not validation against a fully independent measurement system. General non-classical
+measurement error remains possible.
+\item The depth and legal-rights proxies do not significantly reproduce the coverage result.
+\item The C5 fully interacted model is post-registration. Its coefficient is
+dual-implementation; its within-$R^2$ diagnostic is persisted but single-implementation.
+\item The MDE is a retrospective precision summary using the observed clustered SE, not an
+ex ante design guarantee or proof of a negative structural effect.
+\item The account-access channel is a plausible hypothesis only; it is not identified.
+\item \texttt{search\_adequacy} remains \texttt{PARTIAL}, so the paper cannot claim to be
+the first study.
+\end{itemize}
+Additional design-level caveats: \texttt{account\_fin} is conditioned on but is a possible
+common consequence, so the account-holders-only check is a sensitivity analysis, not a fix;
+the private-credit robustness control has heterogeneous vintages; and the Global Findex
+provenance is verified-reconstructed, not original-download verified. None of these is
+resolved by the design, and all are why the language stays associational.
+
+\section{Conclusion}
+
+In a pre-registered individual-level test across \NEconomies{} economies, digital-payment
+activity is positively associated with formal borrowing, but the
+credit-information-substitution prediction --- that the association is larger where
+credit-information coverage is thinner --- is not supported. For the registered coverage
+moderator, the interaction has the opposite sign across weighting, sample and control-set
+variants and all leave-one-economy-out fits; the two alternative institutional proxies are
+imprecise. The registered mechanism and placebo tests give no support to the substitution
+reading. A pre-registered post-result diagnostic battery (H-000501) shows the reversal is not
+confined to the additive percentage-point scale --- it holds on the logit and modified-Poisson
+multiplicative scales and persists with a 2015--2019 moderator --- while a parallel test of
+the account-access channel is inconclusive. We read this as an external-population check that
+does not reproduce the firm-level pattern at the individual level in this cross-section. Basic
+formal-system access is one plausible explanation, but the present design cannot identify it.
+The value of the exercise is in its transparency: a frozen plan, dual-implementation numerical
+verification, and a contrary finding reported as such.
+
+\section*{AI-use disclosure}
+
+Generative-AI systems were used as research-programming assistants. OpenAI Codex constructed
+and executed the primary and diagnostic Python pipelines, integrity checks, tables and typeset
+artifacts under author direction; Anthropic Claude produced earlier cold-code and review
+artifacts identified by the \texttt{CLAUDE-*} run labels. The author selected the research
+question, approved the frozen contracts, reviewed the outputs and remains responsible for all
+claims and errors. Agreement between AI-written implementations tests numerical reproducibility,
+not classical independence: systems may share libraries, coding conventions and correlated
+failure modes. We therefore do not present the 2026-09-14 Codex implementation pair as an
+external human reproduction. The H-000501 diagnostic battery was subsequently also checked by
+a separate Claude-written implementation (2026-09-17); this is a cross-agent, not
+cross-human, check, and is presented with the same qualification. No AI system is an author.
+
+\section*{Registration and verification boundary}
+
+The pre-registration was SHA-256 hash-frozen in the project record before its corresponding
+estimation run, but it was not deposited prospectively in an independent public registry.
+Consequently, the hash proves file identity relative to the recorded receipt, not a third-party
+timestamp that readers can verify independently. A retrospective OSF deposit cannot repair that
+limitation and will not be described as prospective. A cross-agent (Claude-versus-Codex)
+numerical reproduction now covers the headline quantities of both H-000500 and H-000501; human
+reproduction in independently chosen software remains desirable but is not claimed as
+completed.
+
+\section*{Ethics, conflicts of interest and acknowledgements}
+
+The study uses de-identified public-use World Bank microdata and performs no intervention or
+re-identification; no direct contact with human participants occurred. The author reports no
+conflict of interest and no external funding. The World Bank is acknowledged for making the
+Global Findex and archived institutional data available; responsibility for interpretation rests
+with the author.
+
+\section*{Reproducibility statement}
+
+Raw inputs, code and results are under \texttt{projects/study\_05\_findex\_crosscountry/}.
+The frozen pre-registration and hypothesis file were hash-committed before estimation.
+Primary estimation and independent reproduction each have a fixed seed and a recorded
+input/output SHA-256; every table and in-text statistic in this manuscript is generated by
+\url{code/study_05_crosscountry/tables/build_tables.py} from those immutable result
+files. Input SHA-256: Findex microdata \texttt{ca307a0c\ldots f90fce}; 2019
+credit-information snapshot \texttt{ef0c67f9\ldots bd06c}.

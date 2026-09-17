@@ -1,0 +1,129 @@
+{
+  "run_id": "CODEX-S5R-H000501-20260914-001",
+  "source_run_id": "CODEX-S5-EXP-S5-002-20260913-001",
+  "status": "INTERNAL_DUAL_IMPLEMENTATION_REPRODUCED",
+  "scope": "Cold implementation B with no imports from run-A analysis code; internal Codex dual implementation, not external-agent independence",
+  "tolerance": 5e-10,
+  "comparisons": [
+    {
+      "quantity": "Q1_S1",
+      "run_A": -0.01974817527440055,
+      "cold_B": -0.01974817526148879,
+      "delta": 1.2911761937406396e-11,
+      "match": true
+    },
+    {
+      "quantity": "Q1_S2",
+      "run_A": -0.1655891549626283,
+      "cold_B": -0.1655891549626283,
+      "delta": 0.0,
+      "match": true
+    },
+    {
+      "quantity": "Q1_S3",
+      "run_A": -0.13924410878364987,
+      "cold_B": -0.13924410878364987,
+      "delta": 0.0,
+      "match": true
+    },
+    {
+      "quantity": "Q1_S4",
+      "run_A": -0.10724198486142622,
+      "cold_B": -0.10724198486142622,
+      "delta": 0.0,
+      "match": true
+    },
+    {
+      "quantity": "Q2_formal",
+      "run_A": -0.019563073762028267,
+      "cold_B": -0.019563073762198936,
+      "delta": -1.706690344605022e-13,
+      "match": true
+    },
+    {
+      "quantity": "Q2_any",
+      "run_A": 0.0022770006204821565,
+      "cold_B": 0.0022770006204591736,
+      "delta": -2.2982917652347723e-14,
+      "match": true
+    },
+    {
+      "quantity": "Q3_acc_L",
+      "run_A": 0.008436920507411858,
+      "cold_B": 0.008436920507429594,
+      "delta": 1.7735812818386876e-14,
+      "match": true
+    },
+    {
+      "quantity": "Q3_dig_L",
+      "run_A": 0.0013790664528964035,
+      "cold_B": 0.0013790664529593633,
+      "delta": 6.295983699666774e-14,
+      "match": true
+    },
+    {
+      "quantity": "Q3_difference",
+      "run_A": -0.007057854054515454,
+      "cold_B": -0.00705785405447023,
+      "delta": 4.522424101871536e-14,
+      "match": true
+    },
+    {
+      "quantity": "Q4_mean",
+      "run_A": -0.020822753250789368,
+      "cold_B": -0.020822753234261474,
+      "delta": 1.6527893637041657e-11,
+      "match": true
+    },
+    {
+      "quantity": "Q4_persistent",
+      "run_A": -0.03807223118016541,
+      "cold_B": -0.038072231180120354,
+      "delta": 4.5054238118069634e-14,
+      "match": true
+    },
+    {
+      "quantity": "Q5_primary",
+      "run_A": -0.018639641772808115,
+      "cold_B": -0.018639641780533872,
+      "delta": -7.725757533716404e-12,
+      "match": true
+    },
+    {
+      "quantity": "Q5_frame",
+      "run_A": 139,
+      "cold_B": 139,
+      "delta": 0.0,
+      "match": true
+    },
+    {
+      "quantity": "Q5_outside",
+      "run_A": 81,
+      "cold_B": 81,
+      "delta": 0.0,
+      "match": true
+    }
+  ],
+  "classifications": {
+    "Q1": "multiplicative_reinforcement",
+    "Q2": "offsetting_but_unresolved",
+    "Q3": "neither",
+    "Q4": "durable_weak_institution_state",
+    "Q5": "not_transportable"
+  },
+  "frozen_hashes": {
+    "research_council\\hypotheses\\H-000501.json": "9eb335e85575fc06f92ab79684149483e2d1cbb0cc344b50932a89f3f4bb4e9c",
+    "papers\\study_05\\PREREGISTRATION_H000501.md": "ec5ba7fe5471ea6bc7a9aee67c6085434c89d6221c7df5a68724a16d28fe22ec",
+    "papers\\study_05\\VARIABLE_CONTRACT_H000501.md": "9fbf5306842214fd9be6ea06c497ee23608296df53bb8026aabc04354acf20db"
+  },
+  "code_sha256": "5fb43df6e9a2bb0f64ad8381198895920582fde26f8dca8ad07593bc2a632aab",
+  "runtime_seconds": 102.31037926673889,
+  "environment": {
+    "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.4",
+    "pandas": "2.3.1",
+    "statsmodels": "0.15.0"
+  },
+  "created_utc": "2026-09-13T18:09:59.172068+00:00"
+}

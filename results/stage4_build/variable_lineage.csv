@@ -1,0 +1,9 @@
+Analytical variable,Raw variable(s),Transformation,Missing rule,Final coding,Validation
+formal_borrow,fin22a,1→1; 2→0; 3/4→missing,DK/refused/physical missing missing,0/1,range checked
+digital_payment,anydigpayment,1→1; 0→0,physical/structural missing missing,0/1; qualified-comparable 2021–2024,raw field present and range checked
+account_fin,account_fin,preserved,preserved; not used for primary complete-case exclusion,0/1,range checked
+female_binary,female,1→1; 2→0,missing,0/1,range checked
+age,age,numeric conversion,missing,numeric years,range checked
+education,educ,retain 1–3; 4/5→missing,invalid/special/physical missing missing,1–3,range checked
+income_quintile,inc_q,retain 1–5,physical missing missing,1–5,range checked
+wgt,wgt,preserved wave-specific,missing,positive numeric,range and nonmissing checked

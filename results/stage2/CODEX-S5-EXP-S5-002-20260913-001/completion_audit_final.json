@@ -1,0 +1,86 @@
+{
+  "record_type": "EXP_S5_002_FINAL_DELIVERY_AUDIT",
+  "run_id": "CODEX-S5-EXP-S5-002-20260913-001",
+  "verdict": "PASS",
+  "checks": [
+    {
+      "check": "status is complete but unverified",
+      "pass": true
+    },
+    {
+      "check": "no independent-reproduction claim",
+      "pass": true
+    },
+    {
+      "check": "all three frozen R6 hashes intact",
+      "pass": true
+    },
+    {
+      "check": "artifact hashes match receipt",
+      "pass": true
+    },
+    {
+      "check": "Q1 S1-S4 common contrasts present",
+      "pass": true
+    },
+    {
+      "check": "sample comparability present",
+      "pass": true
+    },
+    {
+      "check": "Q2 multinomial converged",
+      "pass": true
+    },
+    {
+      "check": "Q3 four-state gate metrics present and passed",
+      "pass": true
+    },
+    {
+      "check": "Q4 four rows each have C",
+      "pass": true
+    },
+    {
+      "check": "Q4 R6 NaN-aware window audit",
+      "pass": true
+    },
+    {
+      "check": "Q5 overlap/classification retained",
+      "pass": true
+    },
+    {
+      "check": "T1-T5 exist and nonempty",
+      "pass": true
+    },
+    {
+      "check": "F1-F2 exist and nonempty",
+      "pass": true
+    },
+    {
+      "check": "registered bootstrap method/draw count",
+      "pass": true
+    },
+    {
+      "check": "Q4 C bootstrap counts",
+      "pass": true
+    }
+  ],
+  "data_challenge": {
+    "artifact_inventory": "final_result, receipt, T1-T5, F1-F2 and frozen R6 triple inspected",
+    "variable_lineage": "analysis_panel plus documented World Bank coverage/WDI sources; transformations are recorded in code and receipt hashes",
+    "coverage": {
+      "individuals": 100560,
+      "economies": 97,
+      "Q5_frame": 139
+    },
+    "quality_findings": [
+      "R6 Q4 duplicate check is scoped to 2015-2019 and NaN-aware",
+      "Q5 lacks common support and is classified not_transportable"
+    ],
+    "merge_audit": "Q4 complete case is 97; Q5 is 139 after the registered TWN exclusion",
+    "leakage_and_revision_risks": "2019/2015-2019 moderator vintage remains a disclosed design limitation",
+    "unverified_semantics": [],
+    "design_support": "Output contract can support descriptive diagnostics, not causal claims",
+    "feasibility_verdict": "FEASIBLE_WITH_LIMITATIONS"
+  },
+  "created_utc": "2026-09-13T06:41:16.569778+00:00"
+}

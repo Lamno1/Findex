@@ -1,0 +1,23 @@
+{
+  "run_id": "CLAUDE-S5R-CTRLXMOD-WR2-20260910-001",
+  "created_utc": "2026-09-10T11:38:12.335460+00:00",
+  "purpose": "D1 regeneration: persist within-R2 for the C5 control-by-moderator check",
+  "implementation": "Codex Stage-2 fit_lpm; same within-R2 definition as interaction_grid.csv",
+  "within_r2_baseline_M2": 0.048144861463441546,
+  "within_r2_with_control_by_moderator": 0.04907537195533007,
+  "within_r2_delta": 0.0009305104918885254,
+  "baseline_matches_interaction_grid": true,
+  "baseline_reference": {
+    "file": "results/stage2/CODEX-S5-EXP-20260909-002/interaction_grid.csv",
+    "row": "M2",
+    "value": 0.048144861463441546
+  },
+  "N_baseline": 100560,
+  "N_expanded": 100560,
+  "G": 97,
+  "K_baseline": 111,
+  "K_expanded": 122,
+  "formula_added": "female_d:lowcov2019_z + age_c:lowcov2019_z + age_c2:lowcov2019_z + C(educ):lowcov2019_z + C(inc_q):lowcov2019_z + urban_d:lowcov2019_z",
+  "panel_sha256": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9",
+  "code_sha256": "d54db8e9a64c6a8500047980a925608403020459beeaab09c51e84f781a2e501"
+}

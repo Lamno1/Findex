@@ -1,0 +1,47 @@
+{
+  "run_id": "CLAUDE-S5R-DB-INTEGRITY-20260910-001",
+  "created_utc": "2026-09-10T06:55:20.745587+00:00",
+  "reproduces": "CODEX-S5-DB-INTEGRITY-20260910-001",
+  "independent_of": "codex",
+  "method": "reuse build() + hand-rolled WLS/CR1 from CLAUDE-S5R-20260910-001_reproduce.py; drop CHN+SAU; re-standardize any_cov z-score (ddof=0) over 95 economies; re-fit frozen M2",
+  "baseline_all97": {
+    "dig_x_lowcov": -0.019748175274366085,
+    "se_cluster": 0.0047429828086121405,
+    "N": 100560,
+    "G": 97
+  },
+  "restricted": {
+    "N": 95909,
+    "G": 95,
+    "moderator_mean_95": 40.704210526315784,
+    "moderator_sd_ddof0_95": 31.45601412093928,
+    "dig_x_lowcov": -0.019548385736825474,
+    "se_cluster": 0.004820354562862769,
+    "t": -4.055383371055561,
+    "p_cluster_t": 0.00010323524138319582,
+    "ci95_t": [
+      -0.02911931271949815,
+      -0.009977458754152799
+    ]
+  },
+  "codex_targets": {
+    "estimate": -0.01954838573687742,
+    "se_cluster": 0.004820354562862113,
+    "t": -4.055383371066891,
+    "p_cluster": 0.0001032352413789408,
+    "ci95": [
+      -0.02911931271954879,
+      -0.009977458754206052
+    ],
+    "moderator_mean_95": 40.704210526315784,
+    "moderator_sd_ddof0_95": 31.45601412093928
+  },
+  "abs_diff": {
+    "estimate": 5.1948029211601465e-14,
+    "se_cluster": 6.565928356572215e-16,
+    "moderator_mean_95": 0.0,
+    "moderator_sd_ddof0_95": 0.0
+  },
+  "verdict": "PASS",
+  "code_sha256": "0aea3d49b0792e1c6693ee55b4556239df4238cfad285f1ae87c396c330b090e"
+}

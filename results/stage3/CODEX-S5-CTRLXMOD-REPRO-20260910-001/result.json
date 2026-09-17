@@ -1,0 +1,32 @@
+{
+  "run_id": "CODEX-S5-CTRLXMOD-REPRO-20260910-001",
+  "created_utc": "2026-09-10T11:04:26.287544+00:00",
+  "purpose": "Independent reproduction of SELFREVIEW C5 control-by-moderator check",
+  "implementation": "Codex Stage-2 patsy/WLS estimator; Claude check code not imported",
+  "status": "INDEPENDENT_REPRODUCTION_COMPLETE",
+  "N": 100560,
+  "G": 97,
+  "baseline": {
+    "estimate": -0.01974817527440055,
+    "se_cluster": 0.004742982808612062,
+    "t": -4.163661575695118,
+    "p_cluster": 6.837627585280705e-05,
+    "ci95": [
+      -0.02916292173935682,
+      -0.010333428809444283
+    ]
+  },
+  "with_control_by_moderator": {
+    "estimate": -0.015447027213725952,
+    "se_cluster": 0.004513783468726231,
+    "t": -3.42219056823411,
+    "p_cluster": 0.0009143527163493246,
+    "ci95": [
+      -0.02440681658479558,
+      -0.006487237842656323
+    ]
+  },
+  "formula_added": "female_d:lowcov2019_z + age_c:lowcov2019_z + age_c2:lowcov2019_z + C(educ):lowcov2019_z + C(inc_q):lowcov2019_z + urban_d:lowcov2019_z",
+  "panel_sha256": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9",
+  "code_sha256": "ed02083236fed7b01b4153ed72b07bfac4b32e6cc76391c975a254fbee0d86db"
+}

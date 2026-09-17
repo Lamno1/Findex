@@ -1,0 +1,29 @@
+{
+  "generated_utc": "2026-09-14T02:12:45.523446+00:00",
+  "builder": "code/study_05_crosscountry/tables/build_tables.py",
+  "sources": [
+    "results/stage2/CODEX-S5-TABLES-20260909-001/T1_drop_table.csv",
+    "results/stage2/CODEX-S5-TABLES-20260909-001/T2_descriptives.csv",
+    "results/stage2/CODEX-S5-TABLES-20260909-001/T4_mechanism.csv",
+    "results/stage2/CODEX-S5-TABLES-20260909-001/T5_secondary_placebo.csv",
+    "results/stage2/CODEX-S5-TABLES-20260909-001/T6_robustness.csv",
+    "results/stage2/CODEX-S5-EXP-20260909-002/result.json",
+    "results/stage2/CODEX-S5-EXP-20260909-002/interaction_grid.csv",
+    "results/stage3/CODEX-S5-DB-INTEGRITY-20260910-001/result.json",
+    "results/stage3/CODEX-S5-CTRLXMOD-REPRO-20260910-001/result.json",
+    "results/stage3/CLAUDE-S5R-CTRLXMOD-WR2-20260910-001/result.json",
+    "results/stage3/CODEX-S5-SAMPLE-COMPOSITION-20260910-001/result.json",
+    "results/stage2/CODEX-S5-EXP-S5-002-20260913-001/final_result.json",
+    "results/stage3/CODEX-S5-REVIEWER-CHECKS-20260914-001/result.json"
+  ],
+  "outputs": [
+    "tab_descriptives.tex",
+    "tab_h501_diagnostics.tex",
+    "tab_mechanism.tex",
+    "tab_primary.tex",
+    "tab_robustness.tex",
+    "tab_sample.tex",
+    "tab_secondary.tex",
+    "estimates.tex"
+  ]
+}

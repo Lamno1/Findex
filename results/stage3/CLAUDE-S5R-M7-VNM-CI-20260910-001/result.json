@@ -1,0 +1,33 @@
+{
+  "run_id": "CLAUDE-S5R-M7-VNM-CI-20260910-001",
+  "created_utc": "2026-09-10T12:36:12.545751+00:00",
+  "purpose": "Persist the M7 Vietnam fitted-slope point estimate and 95% CI (delta method).",
+  "implementation": "Claude Stage-4 cold WLS+CR1 estimator; no Codex code imported",
+  "method": "slope(z) = b_anydigpayment + b_dig_x_lowcov * z ; delta-method Var = V_dd + z^2 V_xx + 2 z V_dx ; crit = t_{0.975}(G-1)",
+  "vietnam_lowcov2019_z": -0.5645927231205305,
+  "m2_b_anydigpayment": 0.039570863861734015,
+  "m2_b_dig_x_lowcov": -0.019748175274366085,
+  "vcov_ii": 2.3244005582456223e-05,
+  "vcov_jj": 2.2495885922790312e-05,
+  "vcov_ij": -5.311492632377722e-06,
+  "fitted_slope_vnm": 0.050720539916549894,
+  "fitted_slope_vnm_pp": 5.07205399165499,
+  "se": 0.006034282521947517,
+  "crit_t_Gminus1": 1.9849843115310182,
+  "ci95": [
+    0.038742583779138244,
+    0.06269849605396154
+  ],
+  "ci95_pp": [
+    3.8742583779138244,
+    6.269849605396153
+  ],
+  "N": 100560,
+  "G": 97,
+  "cross_check_point_estimate": {
+    "stage2_vietnam_m2_implied_association": 0.05072053991664186,
+    "abs_diff": 9.19680998023864e-14
+  },
+  "code_sha256": "8b29b99ee6e890a6b5437f88f1567b218c264044c56504058400a2dad41fedc0",
+  "reproduces_module_sha256": "2e7a43db81af2c9b6a276cc24054da662f0247e5cab7b36e1106a16a96bd760f"
+}

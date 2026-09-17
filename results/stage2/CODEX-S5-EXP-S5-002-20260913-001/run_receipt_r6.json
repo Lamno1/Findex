@@ -1,0 +1,18 @@
+{
+  "run_id": "CODEX-S5-EXP-S5-002-20260913-001",
+  "artifact": "R6_Q4_REGENERATION",
+  "status": "PARTIAL_ESTIMATED_UNVERIFIED_R6_Q4_Q5_COMPLETE",
+  "stage0": "CODEX-S5-H000501-STAGE0-20260913-005",
+  "frozen_hashes": {
+    "research_council\\hypotheses\\H-000501.json": "9eb335e85575fc06f92ab79684149483e2d1cbb0cc344b50932a89f3f4bb4e9c",
+    "papers\\study_05\\PREREGISTRATION_H000501.md": "ec5ba7fe5471ea6bc7a9aee67c6085434c89d6221c7df5a68724a16d28fe22ec",
+    "papers\\study_05\\VARIABLE_CONTRACT_H000501.md": "9fbf5306842214fd9be6ea06c497ee23608296df53bb8026aabc04354acf20db"
+  },
+  "source_result_sha256": "6db995cefeaeae4d31bbf421395146370635290a63b9026f104fc01cc6b055e5",
+  "result_r6_sha256": "e0bbcfee6b653f919d1b6425d80724a1891f7c858179e491ff49ea812120d571",
+  "code_sha256": "cff14cddc216f88bdde440ee62f77ed6a52a09de651d02c4e6fc5237d784c225",
+  "q1_q2_q3_q5_reestimated": false,
+  "q4_complete_case_economies": 97,
+  "family_C_recomputed": true,
+  "independently_reproduced": false
+}

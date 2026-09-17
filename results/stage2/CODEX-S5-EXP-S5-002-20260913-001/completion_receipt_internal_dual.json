@@ -1,0 +1,38 @@
+{
+  "record_type": "H000501_EXP_S5_002_COMPLETION_RECEIPT",
+  "hypothesis": "H-000501",
+  "run_A": "CODEX-S5-EXP-S5-002-20260913-001",
+  "run_B": "CODEX-S5R-H000501-20260914-001",
+  "status": "COMPLETE_INTERNAL_DUAL_IMPLEMENTATION",
+  "claim_boundary": "Two separately coded implementations executed by Codex matched all registered headline point quantities checked. This is not external-person or external-model reproduction and is not labelled independently reproduced.",
+  "classifications": {
+    "Q1": "multiplicative_reinforcement",
+    "Q2": "offsetting_but_unresolved",
+    "Q3": "neither",
+    "Q4": "durable_weak_institution_state",
+    "Q5": "not_transportable"
+  },
+  "run_A_delivery_audit": "PASS",
+  "cold_quantity_count": 14,
+  "cold_mismatch_count": 0,
+  "independently_reproduced": false,
+  "external_reproduction_required": false,
+  "frozen_hashes": {
+    "research_council\\hypotheses\\H-000501.json": "9eb335e85575fc06f92ab79684149483e2d1cbb0cc344b50932a89f3f4bb4e9c",
+    "papers\\study_05\\PREREGISTRATION_H000501.md": "ec5ba7fe5471ea6bc7a9aee67c6085434c89d6221c7df5a68724a16d28fe22ec",
+    "papers\\study_05\\VARIABLE_CONTRACT_H000501.md": "9fbf5306842214fd9be6ea06c497ee23608296df53bb8026aabc04354acf20db"
+  },
+  "evidence_sha256": {
+    "final_result.json": "2cee0b6f9ba65ee92306faed2e588bcf5c29f64cf0297c64ba2a841fc8d38cb8",
+    "final_receipt.json": "bc910878e5dbbf289b159e4cdf20364d9fb4b7a92735eabdd526cb3c2f080709",
+    "completion_audit_final.json": "d266d93136a3039de37ad2cf777e246acb8c7b1056a084de0fac5df3b25ee07e",
+    "cold_reproduction_codex_b.json": "16ad3b5613c71dc3a7eaf438d31e9d8a75d5f3e5685c6203651f9a3bb96de5da",
+    "implementation_A": "8d37f1d4d94ffc6fbad51f2e191d95a4d0cad037ee891b3c2a9b2ee8f767c7bd",
+    "implementation_B": "5fb43df6e9a2bb0f64ad8381198895920582fde26f8dca8ad07593bc2a632aab"
+  },
+  "environment": {
+    "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "created_utc": "2026-09-13T18:10:51.202909+00:00"
+}

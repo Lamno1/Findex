@@ -1,0 +1,563 @@
+% Stage 8 controlled rewrite. No new data, estimator, hypothesis, or result.
+
+\begin{abstract}
+\noindent We examine whether the informational association between digital-payment
+activity and formal borrowing, documented at the firm level, generalises to individuals.
+Using Global Findex repeated cross-sections for a common frame of 93 economies observed in
+2021 and 2024 --- a sample and specification developed during exploratory analysis of the
+data rather than fixed by a prospective pre-registration --- we estimate survey-weighted
+linear probability models with economy fixed effects and economy-clustered inference.
+Digital-payment activity is positively associated with formal borrowing in both waves, and
+its interaction with lower 2019 historical credit-reporting coverage is negative in 2021
+($-1.74$ percentage points; wild-cluster $p=0.002$) and 2024 ($-1.61$ percentage points;
+wild-cluster $p=0.020$) --- the opposite of the sign a credit-information-substitution
+mechanism predicts. We then subject this reversal to two checks a genuine substitution
+channel should survive, and it survives neither. An identical interaction estimated on
+informal borrowing, a channel with no formal credit-information screening, is nonetheless
+positive and significant in both waves ($+1.95$, $+1.75$ percentage points) --- evidence
+against a formal-credit-specific, information-screening interpretation of the reversal,
+though informal borrowing is not a clean negative control (it can still reflect social
+ties, reputation and selection). Allowing digital-payment activity to also interact with
+log GDP per capita and the account-ownership rate erodes the formal-borrowing interaction
+to non-significance in both waves, though this is consistent with severe collinearity
+between coverage and GDP per capita ($r=0.74$ across the 93 economies) rather than with a
+cleanly identified competing channel. The result is an empirical puzzle rather than a
+confirmed boundary condition: a cross-level association observed consistently across both
+waves, whose two most natural explanations --- an information-screening channel specific
+to formal credit, and a general economic-development channel --- are, respectively,
+disfavoured by the evidence and not separately identifiable with this design. An
+inverse-probability-reweighting check further shows the 93-economy frame cannot be
+extrapolated to the higher-coverage economies the Findex module excluded. We identify no
+mechanism; account access, lender processing capacity, supply-side rationing, measurement
+and firm--retail lending-technology differences remain open explanations.
+
+\medskip
+\noindent\textbf{Keywords:} digital payments, formal borrowing, credit information,
+financial inclusion, Global Findex, external validity, placebo test, exploratory
+analysis.
+\quad\textbf{JEL:} G21, G51, O16, D14.
+\end{abstract}
+
+\section{Introduction}
+
+Digital payments can generate records that lenders may use when assessing borrowers. The
+economic question is not only whether payment activity correlates with credit access, but
+whether the informational value of that activity travels across lending contexts. The
+closest motivating benchmark is the firm-level study of Galilea, Farazi and Mare, which
+reports weaker firm credit constraints among electronic-payment users and a larger
+association in economies with weaker credit-information systems
+\citep{GalileaFaraziMare2026}. Their result motivates a substitution prediction: when
+conventional information is scarce, payment records should have greater marginal value.
+
+Firms and individuals, however, do not face the same lenders, products, information
+technology or access margins. A firm outcome such as a self-reported credit constraint is
+also different from an individual's realised formal borrowing. We therefore test whether
+the conditional pattern generalises to individuals using Global Findex evidence, on a
+common-economy specification developed during exploratory analysis of the data rather
+than fixed in advance of estimation. The 2021 and 2024 waves are repeated cross-sections, not an individual panel;
+2017 is retained only as contextual/supplementary evidence because its payment measure is
+not a strict common exposure.
+
+The primary result is a contrary one. Digital-payment activity is positively associated
+with formal borrowing, but the association is weaker in economies with thinner historical
+2019 formal credit-reporting coverage. The inverse gradient is observed in both 2021 and
+2024 under a qualified-comparable payment measure. The result is not confined to one
+economy under the leave-one-economy-out check and survives wild-cluster inference. This
+reversal is then run through two diagnostic checks a genuine formal-credit-specific
+information channel should survive --- an informal-borrowing placebo and a set of
+macro-control interactions, both described in \S5.4 --- and it survives neither cleanly.
+
+Our contribution is therefore not a boundary condition in the usual sense but evidence
+against a specific mechanism. The account motivating the search for this reversal ---
+that digital-payment records substitute for scarce formal credit information in a way
+specific to formal, information-screened lending --- does not survive a placebo test on
+informal borrowing, a channel with no such screening, though informal borrowing is not a
+clean negative control (it can still reflect social ties, reputation and selection). The
+account's status once general economic development is accounted for cannot be separated
+from a design limitation rather than confirmed as a competing channel. We do not
+claim that the firm-level result is false, nor do we identify what does explain the
+individual-level reversal. The evidence remains compatible with account-access selection,
+general economic development, lender processing capacity, supply-side rationing, record
+usability, measurement and differences between firm and retail lending technologies ---
+an empirical puzzle rather than a resolved mechanism.
+
+\section{Related literature and positioning}
+
+\paragraph{Global financial-inclusion measurement.} The individual-level data underlying
+this paper come from the Global Findex Database, the household-survey program that
+underpins most cross-country evidence on account ownership, digital payments and
+borrowing behaviour
+\citep{DemirgucKuntKlapperSingerAnsar2022,KlapperSingerStaritaNorris2025}. Those reports
+document the digital-payment and formal-borrowing series used here and the module and
+country-coverage rules that generate the 93-economy common frame (\S3); they do not
+themselves test a credit-information-substitution mechanism.
+
+\paragraph{Firm and SME finance.} Galilea, Farazi and Mare study firm credit constraints
+and electronic payments across economies, using Business Ready credit-information
+dimensions as institutional moderators \citep{GalileaFaraziMare2026}. Their unit, outcome,
+moderator and design differ from ours. The present paper is consequently an
+external-population and cross-level comparison, not a direct replication.
+
+Experimental firm evidence also shows that lowering payment-adoption barriers can increase
+access to mobile loans for SMEs \citep{DaltonPamukRamrattanUrasVanSoest2024}. This supports
+the economic relevance of payment technology in business finance, but does not establish
+the same boundary for retail borrowing.
+
+\paragraph{Digital footprints and lender information.} Digital footprints can complement
+rather than substitute for bureau information in predicting consumer default in a
+single-lender setting \citep{BergBurgGombovicPuri2020}. Recent lender-level evidence uses
+applications, payment histories, approval, pricing and default outcomes to study the
+informational content of cashless payments \citep{Ghosh2026}. These studies clarify what
+is needed to identify information value or lender use; the Findex design does not observe
+those links.
+
+\paragraph{Positioning.} We make no categorical first claim. The paper contributes a
+transparent individual-level test, developed through exploratory analysis of the data and
+subsequently independently reproduced (Stage 12), whose inverse gradient is observed in
+both recent waves. It is a descriptive boundary-condition result and a theory-generating
+puzzle, not an identified mechanism or causal institutional effect.
+
+\section{Data and measurement}
+
+The primary frame contains 93 economies common to the 2021 and 2024 Global Findex waves
+\citep{WorldBankFindexMicrodata2025,DemirgucKuntKlapperSingerAnsar2022,KlapperSingerStaritaNorris2025}
+and 194,558 respondents. The 2024 baseline is 97, not the raw release's 140, because the
+borrowing/digital-payment module was administered in only 97 economies; the 93-economy
+frame is the intersection of that 97-economy set with the 139 economies in the 2021 raw
+release, after also requiring complete primary covariates. This module-administration rule
+is not neutral with respect to the moderator: of the 133 economies present in both raw 2021
+and 2024 releases, the 40 excluded from the 93-economy frame are overwhelmingly high-income
+economies (for example Australia, Canada, France, Germany, Japan, Korea, Switzerland, the
+United Kingdom and the United States) with near-universal 2019 credit-information coverage
+--- 24 of the 34 economies worldwide with 2019 coverage at or above 95\% are excluded from
+the 93-economy frame, and the moderator's interquartile range is compressed in-sample (11.7
+to 60.7) relative to the excluded-but-data-available pool (1.2 to 92.6). The 93-economy
+sample is therefore not a random or exhaustive cross-section of economies with available
+2019 coverage data; it is a population pre-filtered by Findex fieldwork decisions that are
+plausibly correlated with the same financial-system completeness the moderator is meant to
+capture. Findex waves are repeated cross-sections. The 2021 release's interview-year field
+includes some observations interviewed in 2022; they remain part of the official 2021
+survey wave and are not silently reclassified.
+
+The outcome (\texttt{fin22a}) is a single self-reported item --- ``In the past 12 months,
+have you borrowed any money from a bank or a similar financial institution?'' --- rather
+than a constructed aggregate of named credit products; its ``or a similar financial
+institution'' phrasing leaves some interpretive latitude to respondents about what counts
+as formal, which this paper does not attempt to resolve further. The exposure is the
+qualified-comparable 2021--2024 digital-payment measure documented in the harmonisation
+audit. It is not described as an invariant causal treatment. The 2017 payment
+reconstruction is contextual only.
+
+The moderator is the maximum of private-bureau and public-registry coverage in 2019,
+standardised so that larger values denote thinner historical formal credit-reporting
+coverage. It measures breadth of recorded coverage, not information depth, accessibility,
+legal usability or actual lender use. Coverage, depth and accessibility therefore remain
+separate constructs. This series is drawn from the archived World Bank Doing Business
+``Getting Credit'' indicators \citep{WorldBankDoingBusinessArchive} (the same 2019-vintage
+snapshot used in the frozen \texttt{H-000500}/\texttt{H-000501} single-wave design), which
+the World Bank paused and later discontinued in 2021 after an internal review found data
+irregularities in a subset of country scores \citep{WorldBank2020Irregularities}, publicly
+confirmed for China (DB2018) and Saudi Arabia (DB2020) ---
+both present in this 93-economy sample. Whether the archived 2019 values used here reflect
+pre- or post-review figures for the affected economies is not established from the files
+available to this project; this is disclosed as a provenance uncertainty, not a
+demonstrated error, consistent with the same disclosure already carried in the
+\texttt{H-000500}/\texttt{H-000501} manuscript. Excluding China and Saudi Arabia and
+re-standardizing the moderator over the remaining 91 economies leaves the primary
+interaction negative and significant in both waves ($-1.64$ pp in 2021, wild-cluster
+$p=0.001$; $-1.54$ pp in 2024, wild-cluster $p=0.007$; changes of 5.7\% and 4.3\%
+relative to the 93-economy estimates), so the registered reversal is not driven by the two
+in-sample economies with documented \emph{Getting Credit} irregularities. This does not
+validate the Doing Business production process for the remaining 91 economies or rule out
+general moderator measurement error.
+
+Account ownership is retained as an access/selection-sensitive variable. The primary
+specification does not condition on it. Conditioning or restricting to account holders is
+a sensitivity estimand that may remove part of the access pathway or create collider risk;
+it is not a universally superior control specification.
+
+\section{Empirical strategy}
+
+For each wave $w\in\{2021,2024\}$, the primary model is a survey-weighted linear
+probability model with economy fixed effects:
+\[
+Y_{icw}=\beta_{1w}D_{icw}+\beta_{3w}(D_{icw}\times L_c^{2019})
++X_{icw}\gamma_w+\delta_{cw}+\varepsilon_{icw},
+\]
+where $D$ is qualified-comparable digital-payment activity, $L^{2019}$ is the fixed
+historical low-coverage moderator, and $X$ contains the frozen demographic controls: a
+female indicator, a centered age quadratic (age and age$^2$), and categorical education
+and income-quintile indicators.
+Weights are the official wave-specific weights normalised within economy-wave; no pooled
+survey weight is created. Inference clusters at the economy level. Interaction inference
+uses a null-imposed, cluster-score Rademacher bootstrap (999 replications) that
+reconstructs the coefficient distribution from a fixed bread matrix computed once at the
+unrestricted fit, rather than refitting the model on every replicate; this is referred to
+below as the wild-cluster bootstrap, following common usage, though it is a one-step
+score-bootstrap variant and not a full-refit Cameron--Gelbach--Miller wild-cluster
+bootstrap.
+
+The pooled model is secondary and descriptive. It includes wave indicators and the
+payment-by-wave and payment-by-low-coverage-by-wave terms. Since $L_c^{2019}$ does not
+change between 2021 and 2024, the triple interaction is a cross-wave conditional contrast,
+not an effect of institutional change.
+
+The primary estimands are the wave-specific association and wave-specific coverage
+gradient. The difference between gradients is described only as a temporal contrast;
+coefficient equality is not asserted because no new equality test was pre-specified.
+
+\section{Results}
+
+\subsection{Primary two-wave evidence}
+
+Digital-payment activity is positively associated with formal borrowing in both waves.
+The payment-by-low-coverage interaction is negative in both primary separate-wave models:
+$-1.74$ percentage points in 2021 and $-1.61$ percentage points in 2024. The wild-cluster
+bootstrap p-values are 0.002 and 0.020, respectively. These are conditional associations,
+not causal effects. Table~\ref{tab:stage8primary} reports the primary estimates.
+
+\input{tables/tab_stage8_primary}
+
+The repeated appearance of the inverse gradient makes a one-year anomaly explanation less
+plausible. But two-wave persistence does not distinguish a recurring economic relationship
+from a recurring selection structure, measurement structure or institutional composition.
+It does not prove temporal stability, equality, a structural effect or a common mechanism.
+Every one of the 93 leave-one-economy-out estimates remains negative in each
+wave, with ranges of approximately $[-1.97,-1.56]$ pp in 2021 and $[-1.83,-1.27]$ pp in
+2024. Because the primary weighting gives each economy equal aggregate weight, dropping
+any single economy removes only about one ninety-third of total estimation weight, which
+mechanically narrows this range; sign preservation across all 93 single-economy deletions
+rules out a dominant-influence economy, not homogeneity of the underlying association
+across economies or economy groups.
+
+\subsection{Pooled contrast and reconciliation}
+
+The pooled secondary interaction is $-1.98$ percentage points. The 2024 triple interaction
+is $+0.58$ percentage points, with wild-cluster $p=0.305$ (Table~\ref{tab:stage8pooled}).
+Thus the specified pooled model finds no statistically detectable wave difference in the
+conditional gradient. This is not proof that the two coefficients are identical.
+
+\input{tables/tab_stage8_pooled}
+
+The pooled-implied 2021 gradient is $-1.98$ pp and the pooled-implied 2024 gradient is
+$-1.40$ pp. They do not equal the separate-wave estimates mechanically because the pooled
+regression jointly estimates the interaction terms with common nuisance slopes, pooled
+sample composition and the pooled fixed-effects parameterisation. The separate-wave
+estimates remain primary.
+
+\subsection{Institutional dimensions and account sensitivity}
+
+Depth is analysed separately from coverage and is secondary evidence. Accessibility is a
+validation/context layer rather than a comparable primary moderator in the frozen dataset.
+The evidence therefore does not establish a general institutional gradient across all
+dimensions.
+
+The account-ownership sensitivity is read only as selection/access sensitivity. Conditioning
+on account ownership slightly attenuates the interaction in 2021 and makes it more negative
+in 2024. This cross-wave difference does not identify account access as the mechanism. In
+the 2021 wave specifically, approximately 3\% of \texttt{account\_fin}\,$=1$ respondents are
+constructed from payment- or card-derived evidence rather than the standard
+account-screening questions, so \texttt{account\_fin} and \texttt{digital\_payment} share a
+small construction overlap in that wave --- a first-order collinearity risk for the
+account-conditioning specification in 2021 specifically, distinct from the
+selection-versus-mechanism caveat above.
+
+\subsection{Additional robustness: external-validity reweighting and macro-control interactions}
+
+Two further exploratory checks quantify, rather than only narrate, two threats already
+raised above and in the Limitations: the module-administration sample restriction, and the
+possibility that the coverage moderator proxies general economic or financial development.
+Neither check is pre-registered or confirmatory; both are diagnostic, following the same
+inverse-probability-weighting protocol already used for the frozen H-000501 record's Q5
+module-selection check, adapted to the present two-wave frame.
+Table~\ref{tab:stage8robustness} reports both.
+
+\emph{External-validity reweighting.} Restricting to the 132 economies with usable
+economy-level covariates among the 133 present in both raw 2021 and 2024 releases (Taiwan
+is dropped for missing all covariates, as in the frozen H-000501 precedent), an inclusion
+logit on 2019 coverage, log GDP per capita, region and log adult population separates the
+93 included from the 39 excluded economies with a $c$-statistic of 0.982 (5-fold
+cross-validated mean AUC 0.954), indicating the near-complete separation reflects a
+genuinely strong inclusion rule --- not overfitting on 132 economies with four
+predictors --- so it is read as a description of the selection process rather than a
+numerically unstable fit; inverse-probability weights are trimmed at the 1st/99th
+percentiles (maximum trimmed weight 6.44, Kish effective sample size 60.9 of 93) before
+reweighting. Reweighting the
+93-economy sample by the inverse inclusion probability keeps the coverage interaction
+negative and of similar magnitude in 2021 (primary $-1.74$ pp; reweighted $-1.77$ pp, a
+1.3\% change, wild-cluster $p=0.002$) and attenuates it further in 2024 (primary $-1.61$
+pp; reweighted $-1.23$ pp, a 23.3\% change, wild-cluster $p=0.043$), in both cases well
+inside the $\pm 50\%$ stability band. The classification is nonetheless
+\textbf{not credibly transportable with the available covariate overlap}, not because the
+reweighted point estimates are unstable, but
+because 80 of the 132 economies fall outside common support --- the excluded, mostly
+high-coverage economies are sufficiently different in covariate profile from the included
+93 that no amount of reweighting can credibly extrapolate to them. This is the same
+qualitative outcome, and a similar outside-support count, as the frozen H-000501 Q5 check
+on a different target frame, which strengthens the reading that the module-administration
+restriction is a genuine, not incidental, limit on external validity.
+
+\emph{Macro-control interactions.} Because \texttt{lowcov\_z} interacted with log GDP per
+capita or the account-ownership rate is collinear with the economy fixed effects already in
+M2 (both terms are constant within economy), the diagnostic instead interacts
+\texttt{digital\_payment} with these two economy-level covariates --- the same construction
+already used for the primary interaction --- and asks whether \texttt{dig\_x\_lowcov}
+survives. It does not survive at conventional significance: the coefficient attenuates from
+$-1.74$ to $-1.21$ pp in 2021 (30.9\% change, $p=0.087$, no longer significant at 5\%) and
+from $-1.61$ to $-0.98$ pp in 2024 (39.0\% change, $p=0.31$, not significant), while
+remaining negative in sign in both waves. Neither new interaction term itself reaches
+conventional significance (payment $\times$ log GDP per capita: $p=0.75$ and $p=0.64$;
+payment $\times$ account-ownership rate: $p=0.14$ and $p=0.07$). Part of this attenuation
+is mechanical rather than substantive: the 2019 coverage moderator and log GDP per capita
+are themselves highly correlated across the 93 economies ($r=0.74$, $R^2=0.55$), so asking
+the model to identify both the coverage and the GDP-per-capita interaction terms
+simultaneously, with only 93 economy-level clusters, imposes a severe collinearity burden
+regardless of whether a genuinely separable development channel exists --- consistent with
+neither new interaction term itself reaching significance. Excluding China and Saudi
+Arabia and re-standardizing the coverage and GDP-per-capita moderators over the remaining
+91 economies does not change this reading: the coverage interaction is $-1.38$ pp
+($p=0.039$) in 2021 and $-0.95$ pp ($p=0.33$) in 2024, and \texttt{dig\_x\_lgdppc} and
+\texttt{dig\_x\_accrate} remain non-significant in both waves, so the attenuation pattern
+is not driven by the two economies with disclosed \emph{Getting Credit} irregularities. This is reported plainly rather
+than softened: with this degree of correlation and this many clusters, the design cannot
+cleanly distinguish a credit-information-specific channel from a general economic-development
+channel. The attenuation is consistent with either genuine confounding or with
+collinearity-driven loss of precision, and the data cannot adjudicate between the two. We
+therefore do not claim the coverage interaction is spurious, only that its specificity to
+credit-information coverage, as opposed to economic development more broadly, is not
+identified by this design.
+
+\input{tables/tab_stage8_robustness}
+
+\subsection{Placebo check: informal borrowing}
+
+A further exploratory check asks whether the coverage interaction is specific to formal
+borrowing or also appears for an outcome the substitution reading predicts should be
+unaffected: borrowing from family or friends (\texttt{informal\_borrow}, from
+\texttt{fin22b}), constructed exactly as in the frozen H-000500 record and re-estimated
+under the identical M2 specification, weighting and wild-cluster inference used
+throughout. The row-level sample reconstruction was validated against
+\texttt{results/stage5\_estimation/estimates.csv} before this check was read: both waves'
+complete-case $N$ and $G$ match the primary formal-borrowing sample exactly
+(96,711/93 in 2021, 97,847/93 in 2024), confirming the reconstruction is faithful;
+\texttt{informal\_borrow}'s own missingness (dropping \texttt{fin22b} DK/refused) then
+yields a slightly smaller estimation sample (96,535 and 97,723 respondents, still 93
+economies in both waves). Table~\ref{tab:stage8placebo} reports both waves.
+
+The placebo does not pass. As with the frozen H-000500 record's own informal-borrowing
+check, the coverage interaction on informal borrowing is \textbf{positive}, not
+approximately zero: $+1.95$ percentage points in 2021 (wild-cluster $p=0.009$) and $+1.75$
+percentage points in 2024 (wild-cluster $p=0.006$) --- opposite in sign to the
+$-1.74$/$-1.61$ percentage-point formal-borrowing interaction, and, unlike H-000500's
+single-wave version of this check, now replicated with a similar magnitude and precision
+in both waves of a fully separate design. This is reported plainly rather than
+reconciled: the data are consistent with a reallocation of borrowing activity toward
+informal sources where coverage is thinner, but this check alone does not establish that
+reading, since it does not observe the same individuals borrowing from both sources or
+rule out a shared measurement or selection process behind both outcomes. It does,
+however, further undermine any reading of the formal-borrowing interaction as confirming
+the credit-information-substitution prediction: a genuine substitution effect specific to
+formal, information-screened lending should not also show up, with similar strength and
+in the same two waves, for borrowing that involves no credit-information screening at
+all. Excluding China and Saudi Arabia and re-standardizing the moderator over the
+remaining 91 economies leaves this placebo interaction positive and significant in both
+waves ($+1.81$ pp in 2021, $+1.69$ pp in 2024, both wild-cluster $p<0.03$; changes of 7.1\%
+and 3.9\% relative to the 93-economy estimates), so it is not an artifact of the two
+economies with disclosed \emph{Getting Credit} irregularities either.
+
+\input{tables/tab_stage8_placebo}
+
+\section{Discussion}
+
+The central empirical fact is that the inverse digital-payment/formal-borrowing gradient is
+observed in both recent Findex waves. The two-wave result reduces the likelihood of a
+one-wave anomaly, but it does not by itself identify an underlying economic mechanism: the
+same persistent selection or measurement structure could recur.
+
+Two-wave persistence, however, is not the paper's strongest result. Two checks were run
+specifically to ask whether the reversal reflects the credit-information-substitution
+mechanism the literature motivates, and both point away from it. The informal-borrowing
+placebo (\S5.4) finds the identical interaction, on a channel with no formal
+credit-information screening, positive and significant in both waves --- the opposite of
+what a mechanism specific to formal, information-screened lending would produce. This is
+evidence against that specific interpretation, not merely a failure to confirm it: the
+formal-credit-specific account predicts a near-zero placebo interaction, and instead the
+placebo interaction is of similar magnitude and precision to the formal-borrowing result,
+with the opposite sign --- though informal borrowing is not a clean negative control, since
+it can still reflect social ties, reputation and selection unrelated to credit-information
+screening. Separately, allowing digital-payment
+activity to interact with log GDP per capita and the account-ownership rate (\S5.4) erodes
+the formal-borrowing interaction to non-significance in both waves; because 2019 coverage
+and log GDP per capita are themselves correlated at $r=0.74$ across the 93 economies, this
+is consistent with either a genuine development-level channel or with the two variables
+simply being too collinear, given 93 clusters, for the design to tell them apart. Taken
+together, these checks leave the reversal itself observed consistently across both waves,
+but its two most natural explanations --- a credit-information-specific channel, and a
+general-development channel --- respectively disfavoured by the evidence and unidentifiable.
+The paper's contribution is therefore best read as an empirical puzzle: a pattern that
+recurs across both waves and resists the mechanism motivating the search for it, not a
+confirmed boundary condition with an unresolved but plausible cause.
+
+This finding also describes a narrower population than ``cross-country'' evidence might
+suggest. The 93-economy frame excludes most near-universal-coverage economies because the
+underlying survey module was not administered there, not because moderator data are
+missing (see Data); the boundary-condition and transportability language in this paper
+should therefore be read as describing module-administered economies with predominantly
+low-to-middle 2019 credit-information coverage, not economies in general.
+
+Several explanations remain open. First, in thin formal systems, account ownership and
+digital-payment use may mark entry into formal finance rather than provide an incremental
+lender-legible signal. Second, retail lenders may lack the systems to process payment
+records even when such records exist. Third, realised borrowing combines borrower demand,
+selection and lender supply; a survey outcome cannot separate them. Fourth, coverage is an
+imperfect historical proxy and payment measures are qualified-comparable rather than
+identical. Finally, firm and retail lending technologies may use payment information in
+different ways.
+
+The present evidence does not choose among the remaining explanations, but it does narrow
+them. A channel operating specifically through formal-lender use of payment-based credit
+information is difficult to reconcile with a placebo interaction of similar size and
+significance on a channel where no such information use is possible; that specific
+account is therefore not merely unconfirmed but actively disfavoured by the evidence.
+Account-access selection, general economic development, lender processing capacity,
+supply-side rationing, record usability, measurement and firm--retail lending-technology
+differences all remain compatible with what is observed. Direct mechanism evidence would
+require applications, approval/rejection, lender type, loan terms, account-opening timing,
+payment-record access or actual underwriting use.
+
+The result also does not overturn the firm-level literature. The benchmark differs in unit,
+outcome, moderator and lending technology. The appropriate inference is narrower: a
+firm-level substitution pattern should not be assumed to generalise automatically to
+individual formal borrowing.
+
+\section{Conclusion}
+
+Digital-payment activity is positively associated with formal borrowing in the 2021 and
+2024 Global Findex repeated cross-sections, and its interaction with thinner historical
+2019 formal-credit-reporting coverage is negative in both waves --- the opposite of what
+the motivating credit-information-substitution prediction implies.
+
+The paper's contribution is evidence against a specific mechanism rather than a confirmed
+boundary condition. An informal-borrowing placebo that a formal-credit-specific
+information-screening channel should have left near zero instead returns a positive,
+significant interaction of similar magnitude in both waves --- evidence against that
+specific account, though informal borrowing is not a clean negative control, since it can
+still reflect social ties, reputation and selection. A parallel check allowing
+digital-payment activity to interact with general economic development (log GDP per
+capita) and the account-ownership rate erodes the formal-borrowing interaction to
+non-significance in both waves, though this is not separable from severe collinearity
+between coverage and development ($r=0.74$) given only 93 economy clusters. The reversal
+itself is therefore observed consistently across both waves, but its most natural specific
+explanation is disfavoured by the evidence and its next most natural explanation is not
+identifiable with this design --- an empirical puzzle, not a resolved mechanism. It does
+not establish that weak coverage causes a negative structural effect, that payment data
+are complementary, or that account access, lender processing or supply constraints
+explain the result. Future mechanism claims would require lender- or application-level
+evidence.
+
+\section*{Limitations}
+
+The evidence is observational repeated cross-sectional evidence, not an individual panel.
+The interaction is identified by 93 economy-level historical moderator values, not by
+194,558 independent observations of institutional variation. The 2019 coverage measure is
+an imperfect historical breadth proxy and does not measure depth, accessibility, legal
+usability or lender use. The 2021--2024 payment exposure is qualified-comparable, and 2017
+is contextual because its payment construct is not strictly common. The 93-economy frame
+is not a random or exhaustive sample of economies with available 2019 coverage data: it
+excludes most near-universal-coverage economies because the Findex borrowing module was
+not administered there (see Data), compressing the moderator's within-sample range and
+narrowing the population to which the boundary-condition language applies. An
+inverse-probability-reweighting check (\S5.4) confirms this is not merely a theoretical
+concern: 80 of the 132 economies with usable covariates fall outside common support between
+the included and excluded groups, so the sample is classified not credibly transportable
+with the available covariate overlap to the excluded, mostly high-coverage population,
+regardless of the reweighted point estimates' own stability. The same diagnostic also shows the coverage interaction attenuates by 31--39\%
+and loses conventional significance once digital-payment activity is additionally allowed
+to interact with log GDP per capita and the account-ownership rate. Coverage and log GDP
+per capita are themselves highly correlated across the 93 economies ($r=0.74$), so this
+attenuation is consistent with either genuine development-level confounding or with
+collinearity-driven loss of precision from asking 93 clusters to identify two highly
+overlapping economy-level dimensions at once; this design cannot adjudicate between the two,
+so the coverage interaction's specificity to credit-information coverage, rather than
+economic development more broadly, is not identified here. The 2019
+coverage series' Doing Business provenance also carries a disclosed, unresolved
+measurement-integrity question for a subset of economies, including two in this sample
+(see Data); excluding those two economies (China, Saudi Arabia) and re-standardizing the
+moderator over the remaining 91 leaves the primary interaction, the informal-borrowing
+placebo, and the macro-control interaction check all qualitatively unchanged (\S3, \S5.4),
+so this is a disclosed provenance concern rather than one shown to drive any reported
+result. A placebo check on informal borrowing (\S5.4) does not pass: the coverage
+interaction is positive, not null, in both waves (2021 $+1.95$ pp, 2024 $+1.75$ pp,
+both wild-cluster $p<0.01$), which further weakens any reading of the formal-borrowing
+interaction as confirming a credit-information-specific substitution effect. Account
+ownership may be a mediator, collider or selection variable. Realised
+borrowing does not distinguish demand from supply. The 93-economy, 2021--2024 sample and specification were developed
+during exploratory analysis of the data rather than fixed by a prospective, hash-frozen
+pre-registration; no such pre-registration exists for this design, and the frozen
+\texttt{H-000501} protocol that otherwise governs this project explicitly places
+multi-wave/panel estimation of the outcome out of scope pending a new pre-registration
+process, which this analysis did not undergo. The reported estimates should therefore be
+read as exploratory/observational evidence rather than a confirmatory pre-registered test;
+they are independently reproduced at the level of arithmetic (Stage 12) but not
+confirmatory in the pre-registration sense. Agreement between AI implementations is
+computational reproducibility rather than independent human replication. These
+limitations are not resolved by persistence across waves or by robustness checks.
+
+\section*{Data availability, ethics, and conflicts of interest}
+
+\paragraph{Data availability.} The analysis uses the publicly available Global Findex
+Database 2021 and 2025 microdata \citep{WorldBankFindexMicrodata2025} and the archived
+World Bank Doing Business \emph{Getting Credit} indicators
+\citep{WorldBankDoingBusinessArchive}, both obtainable from the World Bank Microdata
+Library and Doing Business archive respectively. The frozen analytical dataset (194,558
+observations, 93 economies, SHA-256
+\texttt{78938AFF518F3F3BC049A18E7B8CA5C1042996392B1ACDD6EAAB56FC555240C1}) and all
+estimation code are retained in the project repository and available from the
+corresponding author on reasonable request.
+
+\paragraph{Ethics.} All microdata are secondary, de-identified, publicly released survey
+data with no individual identifiers; no new human-subjects data were collected for this
+study, and no separate ethics/IRB approval was required.
+
+\paragraph{Conflicts of interest.} The author declares no financial or non-financial
+conflicts of interest related to this work.
+
+\section*{AI-use disclosure}
+
+AI systems assisted with data engineering, estimation, auditing and typesetting under
+author direction. Cross-agent agreement is reported as computational reproducibility, not
+independent human replication. The author selected the question, approved the contracts,
+reviewed the outputs and remains responsible for all claims and errors. No AI system is an
+author.
+
+\section*{Research provenance, exploratory status, and reproducibility}
+
+The 93-economy, 2021--2024 common-frame sample and specification were developed during
+exploratory analysis of the underlying Global Findex data, not fixed in advance by a
+prospective, hash-frozen pre-registration. No pre-registration record exists for this
+design in the project's hypothesis ledger, and the frozen \texttt{H-000501} protocol that
+otherwise governs this project explicitly lists multi-wave/panel estimation of the outcome
+as out of scope pending a genuinely new pre-registration process, which was not carried
+out before this specification was chosen and estimated. This paper's reported associations
+are therefore exploratory/observational evidence, not a confirmatory pre-registered test,
+and should be read accordingly.
+
+What was frozen, and when, is nonetheless disclosed precisely. The analysis contract and
+analytical dataset were hash-recorded after the specification was chosen: the frozen
+analytical dataset contains 194,558 observations in 93 economies and has SHA-256
+\texttt{78938AFF518F3F3BC049A18E7B8CA5C1042996392B1ACDD6EAAB56FC555240C1}. Stage 5 and
+Stage 5.1 result artifacts record the estimator, weights, clustering, bootstrap settings,
+specification hierarchy and result checksums, so the arithmetic reported here is fully
+traceable to those immutable artifacts; no new estimation was performed for this rewrite.
+Tables~\ref{tab:stage8primary} and~\ref{tab:stage8pooled} are generated directly from
+those Stage 5/5.1 artifacts by \texttt{code/study\_05\_crosscountry/tables/}
+\texttt{build\_stage8\_tables.py} (Stage 15); no coefficient, standard error, $p$-value or
+sample count in either table is typed by hand.
+An independent forensic replication (Stage 12) rewrote the data-construction and
+estimation code from scratch, without reusing any of the code above, and closely
+reproduced the primary 2021 and 2024 coefficients, the pooled and triple-interaction
+estimates, and all 186 leave-one-economy-out signs. This establishes computational
+reproducibility of the numbers reported; it does not establish that the sample or
+specification was locked before results were seen, which remains a separate, unresolved
+provenance question and is stated plainly above rather than obscured by the reproducibility
+result.

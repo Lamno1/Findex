@@ -1,0 +1,25 @@
+{
+  "run_id": "CODEX-S5-DB-INTEGRITY-20260910-001",
+  "created_utc": "2026-09-10T05:23:10.620361+00:00",
+  "purpose": "C6 sensitivity excluding China and Saudi Arabia and re-standardizing coverage",
+  "excluded_economies": [
+    "CHN",
+    "SAU"
+  ],
+  "N": 95909,
+  "G": 95,
+  "moderator_mean_95_economies": 40.704210526315784,
+  "moderator_sd_ddof0_95_economies": 31.45601412093928,
+  "interaction": {
+    "estimate": -0.01954838573687742,
+    "se_cluster": 0.004820354562862113,
+    "t": -4.055383371066891,
+    "p_cluster": 0.0001032352413789408,
+    "ci95": [
+      -0.02911931271954879,
+      -0.009977458754206052
+    ]
+  },
+  "panel_sha256": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9",
+  "code_sha256": "6cfeb51c35d2a6839d1311e0f37ce214d6c16ad121d15084b5f987c2f71909ba"
+}

@@ -1,0 +1,37 @@
+{
+  "audit_id": "CODEX-S5-STAGE3-FINAL-001",
+  "study_id": "study_05_findex_crosscountry",
+  "date": "2026-09-09",
+  "verdict": "H_NOT_SUPPORTED_C1_DESCRIPTIVE_SUPPORTED_INDEPENDENT_REPRODUCTION_REQUIRED",
+  "evidence_status": "ESTIMATED_UNVERIFIED",
+  "valid_run_set": [
+    "CODEX-S5-EXP-20260909-002",
+    "CODEX-S5-M6-2-20260909-001",
+    "CODEX-S5-TABLES-20260909-001",
+    "CODEX-S5-AUDIT-20260909-001"
+  ],
+  "invalid_retained_run": {
+    "run_id": "CODEX-S5-EXP-20260909-001",
+    "reason": "serialization failure before result/receipt issuance; never overwritten"
+  },
+  "primary": {
+    "M1_b1": {"estimate": 0.03617476245390756, "se_cluster": 0.005142845649763501, "p_cluster": 2.954780357539899e-10},
+    "M2_b3": {"estimate": -0.01974817527440055, "se_cluster": 0.004742982808612062, "p_cluster": 0.00006837627585280705, "hypothesized_direction": "positive", "verdict": "opposite_sign"}
+  },
+  "claim_verdicts": {
+    "C1": "SUPPORTED_DESCRIPTIVE_UNVERIFIED",
+    "C2_H_000500": "NOT_SUPPORTED_OPPOSITE_SIGN",
+    "C3": "NOT_SUPPORTED",
+    "C4": "NOT_SUPPORTED",
+    "C5": "DESCRIPTIVE_POSITIONING_AVAILABLE"
+  },
+  "adversarial_summary": {
+    "all_drop_one_control_estimates_negative": true,
+    "all_leave_one_region_estimates_negative": true,
+    "all_leave_one_economy_estimates_negative": true,
+    "account_holders_only": {"estimate": -0.008027068742551092, "p_cluster": 0.21781840637578667},
+    "placebo_undermines_substitution": true
+  },
+  "manuscript_eligible": false,
+  "required_next_step": "independent cold-context reproduction from frozen contracts and raw data with a distinct implementation and run ID"
+}

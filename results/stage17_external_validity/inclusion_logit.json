@@ -1,0 +1,56 @@
+{
+  "frame_133_n": 132,
+  "included_n": 93,
+  "excluded_n": 39,
+  "dropped_missing_all_covariates": [
+    "TWN"
+  ],
+  "rhs": "coverage + lgdppc + C(region, Treatment(reference='Sub-Saharan Africa (excluding high income)')) + log_pop_adult",
+  "coefficients": {
+    "Intercept": 14.65220318458483,
+    "C(region, Treatment(reference='Sub-Saharan Africa (excluding high income)'))[T.East Asia & Pacific (excluding high income)]": 21.557032889211136,
+    "C(region, Treatment(reference='Sub-Saharan Africa (excluding high income)'))[T.Europe & Central Asia (excluding high income)]": 1.356195231475269,
+    "C(region, Treatment(reference='Sub-Saharan Africa (excluding high income)'))[T.High income]": -1.5726722909377755,
+    "C(region, Treatment(reference='Sub-Saharan Africa (excluding high income)'))[T.Latin America & Caribbean (excluding high income)]": 22.131466369878716,
+    "C(region, Treatment(reference='Sub-Saharan Africa (excluding high income)'))[T.Middle East & North Africa (excluding high income)]": 20.33858154850251,
+    "C(region, Treatment(reference='Sub-Saharan Africa (excluding high income)'))[T.South Asia]": 19.623885586726658,
+    "coverage": -0.017774016119583045,
+    "lgdppc": -1.3365133589547054,
+    "log_pop_adult": 0.01589384829785012
+  },
+  "c_stat": 0.9820788530465949,
+  "cv5_c_stat_mean": 0.9538324979114453,
+  "cv5_folds": [
+    1.0,
+    0.8947368421052632,
+    0.9924812030075189,
+    1.0,
+    0.8819444444444444
+  ],
+  "overlap": {
+    "included_minmax": [
+      0.14234399407815707,
+      0.9999999999943578
+    ],
+    "excluded_minmax": [
+      0.019256654026939032,
+      0.995825155589114
+    ],
+    "common_support": [
+      0.14234399407815707,
+      0.995825155589114
+    ],
+    "outside_count": 80,
+    "max_ipw_before_trim": 7.025234935103256,
+    "max_ipw_after_trim": 6.442555424871642,
+    "kish_ess": 60.899802710050885
+  },
+  "item1_classification": "not_transportable",
+  "item1_classification_basis": {
+    "overlap_ok": false,
+    "outside_count_le_10": false,
+    "max_ipw_after_trim_le_10": true,
+    "all_same_sign": true,
+    "all_relative_change_le_50pct": true
+  }
+}

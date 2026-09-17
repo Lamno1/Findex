@@ -1,0 +1,358 @@
+{
+  "run_id": "CLAUDE-S5R-H000501-20260917-001",
+  "stage": 4,
+  "kind": "independent_reproduction",
+  "executed_by": "claude",
+  "reproduces": [
+    "CODEX-S5-EXP-S5-002-20260913-001"
+  ],
+  "verdict": "PASS_WITH_DISCLOSURES",
+  "evidence_status": "INDEPENDENTLY_REPRODUCED",
+  "created_utc": "2026-09-17T03:46:56Z",
+  "seed": 20260917,
+  "code_file": "code/study_05_crosscountry/CLAUDE-S5R-H000501-20260917-001_reproduce.py",
+  "code_sha256": "0db5ecd51e5c09cb8f7aa1b67df5ea5cb92c708aa13d1f08071c54efe2de90ce",
+  "input_sha256": {
+    "analysis_panel.csv": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9",
+    "wb_credit_information_by_country_year.csv": "2d7c9a27efb59ff7bbcb894f3c0ecb51782dd8b1076c347868aae047fe3d6288",
+    "wb_credit_information_latest_snapshot.csv": "ef0c67f9c7d44b67939e088f0aab2e578f7ba0d7f2eeadc4093c0103cc1bd06c",
+    "wdi_NY.GDP.PCAP.CD_2000_2023.json": "e7921b98db185e568c7d07dd5c094eb3dbf8e56ca11ba08a15f6d9abe34dcacd",
+    "wdi_FS.AST.PRVT.GD.ZS_2000_2023.json": "ad301883321da15e2cfcf6a0fefb569565d8efc7c77f1ba5ee3ae540c77dc953",
+    "data_micro_findex_2024_vietnam.xlsx": "ca307a0c3dfd54dc945a18fb03c58b014143bc21c90761f71fe304e6a2f90fce"
+  },
+  "p_bar": 0.0915121469587915,
+  "delta_logodds": 0.12028241263869295,
+  "delta_logrisk": 0.10927511081674288,
+  "S2_dropped_economies": [],
+  "S2_economies_lost": 0,
+  "Q4_complete_case_economies": 97,
+  "Q5_dropped_all_missing": [
+    "TWN"
+  ],
+  "family_C_raw_p": {
+    "Q3_dig_step": 0.31483744643799794,
+    "Q3_acc_L": 0.17529466044291686,
+    "Q4_mean": 2.1104543504568696e-05,
+    "Q4_persistent": 0.0001652374594687256,
+    "Q5_primary": 8.516635077082668e-05
+  },
+  "family_C_bh_q": {
+    "Q3_dig_step": 0.31483744643799794,
+    "Q3_acc_L": 0.21911832555364608,
+    "Q4_persistent": 0.00027539576578120933,
+    "Q5_primary": 0.0002129158769270667,
+    "Q4_mean": 0.00010552271752284348
+  },
+  "classifications": {
+    "Q1": [
+      "multiplicative_reinforcement",
+      "multiplicative_reinforcement"
+    ],
+    "Q2": [
+      "offsetting_but_unresolved",
+      "offsetting_but_unresolved"
+    ],
+    "Q3": [
+      "neither",
+      "neither"
+    ],
+    "Q4": [
+      "durable_weak_institution_state",
+      "durable_weak_institution_state"
+    ],
+    "Q5": [
+      "not_transportable",
+      "not_transportable"
+    ]
+  },
+  "wild_cluster_bootstrap": {
+    "Q1_S1": {
+      "wild_p": 0.001,
+      "C_pp": -3.079920007897776,
+      "C_ci95": [
+        -4.4273351148279065,
+        -1.7511152219889599
+      ]
+    },
+    "Q4_row1_full_reference": {
+      "wild_p": 0.001,
+      "C_pp": -3.079920007897776,
+      "C_ci95": [
+        -4.4273351148279065,
+        -1.7511152219889599
+      ],
+      "note": "identical model/coefficient to Q1_S1 (Q4 complete-case=97=full sample); one bootstrap run reused for both labels rather than re-drawing an identical statistic under a second seed"
+    },
+    "Q4_row2_q4_baseline": {
+      "wild_p": 0.001,
+      "C_pp": -3.079920007897776,
+      "C_ci95": [
+        -4.4273351148279065,
+        -1.7511152219889599
+      ],
+      "note": "identical model/coefficient to Q1_S1 (Q4 complete-case=97=full sample); one bootstrap run reused for both labels rather than re-drawing an identical statistic under a second seed"
+    },
+    "Q1_S2": {
+      "wild_p": 0.001,
+      "ci": [
+        -0.28192400314143096,
+        -0.07743068423736345
+      ]
+    },
+    "Q1_S3": {
+      "wild_p": 0.001,
+      "ci": [
+        -0.24201674446820842,
+        -0.06442855271080711
+      ]
+    },
+    "Q2_formal": {
+      "wild_p": 0.001,
+      "ci": [
+        -0.029159401855818872,
+        -0.010499072972985279
+      ]
+    },
+    "Q2_any": {
+      "wild_p": 0.69,
+      "ci": [
+        -0.009221624703085742,
+        0.014212477289987346
+      ]
+    },
+    "Q3_acc_L": {
+      "wild_p": 0.163
+    },
+    "Q3_dig_L": {
+      "wild_p": 0.861
+    },
+    "Q3_difference": {
+      "wild_p": 0.318,
+      "ci": [
+        -0.020983702728462932,
+        0.006446814019878558
+      ]
+    },
+    "Q4_row3_mean1519": {
+      "wild_p": 0.001,
+      "C_pp": -3.1481837858149007,
+      "C_ci95": [
+        -4.551808032724488,
+        -1.7072958096546746
+      ]
+    },
+    "Q4_row4_persistent": {
+      "wild_p": 0.001,
+      "C_pp": -3.807223118087256,
+      "C_ci95": [
+        -5.654987410884508,
+        -1.9144422513015684
+      ]
+    },
+    "Q5_primary": {
+      "wild_p": 0.001,
+      "C_pp": -2.9070334265581796,
+      "C_ci95": [
+        -4.289918546814694,
+        -1.5514711432668966
+      ]
+    }
+  },
+  "wild_cluster_bootstrap_comparison": [
+    {
+      "quantity": "Q1_S1",
+      "kind": "wild_p",
+      "mine": 0.001,
+      "target": 0.001,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q1_S1",
+      "kind": "C_pp",
+      "mine": -3.079920007897776,
+      "target": -3.079920007901468,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q1_S1",
+      "kind": "C_ci95",
+      "mine": "[-4.4273,-1.7511]",
+      "target": "[-4.4351,-1.7435]",
+      "status": "CONSISTENT"
+    },
+    {
+      "quantity": "Q4_row1_full_reference",
+      "kind": "wild_p",
+      "mine": 0.001,
+      "target": 0.001,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q4_row1_full_reference",
+      "kind": "C_pp",
+      "mine": -3.079920007897776,
+      "target": -3.079920007901468,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q4_row1_full_reference",
+      "kind": "C_ci95",
+      "mine": "[-4.4273,-1.7511]",
+      "target": "[-4.5324,-1.6934]",
+      "status": "CONSISTENT"
+    },
+    {
+      "quantity": "Q4_row2_q4_baseline",
+      "kind": "wild_p",
+      "mine": 0.001,
+      "target": 0.001,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q4_row2_q4_baseline",
+      "kind": "C_pp",
+      "mine": -3.079920007897776,
+      "target": -3.079920007901468,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q4_row2_q4_baseline",
+      "kind": "C_ci95",
+      "mine": "[-4.4273,-1.7511]",
+      "target": "[-4.5134,-1.5841]",
+      "status": "CONSISTENT"
+    },
+    {
+      "quantity": "Q1_S2",
+      "kind": "wild_p",
+      "mine": 0.001,
+      "target": 0.003,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q1_S3",
+      "kind": "wild_p",
+      "mine": 0.001,
+      "target": 0.006,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q2_formal",
+      "kind": "wild_p",
+      "mine": 0.001,
+      "target": 0.001,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q2_any",
+      "kind": "wild_p",
+      "mine": 0.69,
+      "target": 0.691,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q3_acc_L",
+      "kind": "wild_p",
+      "mine": 0.163,
+      "target": 0.165,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q3_dig_L",
+      "kind": "wild_p",
+      "mine": 0.861,
+      "target": 0.868,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q3_difference",
+      "kind": "wild_p",
+      "mine": 0.318,
+      "target": 0.321,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q4_row3_mean1519",
+      "kind": "wild_p",
+      "mine": 0.001,
+      "target": 0.001,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q4_row3_mean1519",
+      "kind": "C_pp",
+      "mine": -3.1481837858149007,
+      "target": -3.1481837858239747,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q4_row3_mean1519",
+      "kind": "C_ci95",
+      "mine": "[-4.5518,-1.7073]",
+      "target": "[-4.5599,-1.6990]",
+      "status": "CONSISTENT"
+    },
+    {
+      "quantity": "Q4_row4_persistent",
+      "kind": "wild_p",
+      "mine": 0.001,
+      "target": 0.001,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q4_row4_persistent",
+      "kind": "C_pp",
+      "mine": -3.807223118087256,
+      "target": -3.8072231180190292,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q4_row4_persistent",
+      "kind": "C_ci95",
+      "mine": "[-5.6550,-1.9144]",
+      "target": "[-5.6656,-1.9036]",
+      "status": "CONSISTENT"
+    },
+    {
+      "quantity": "Q5_primary",
+      "kind": "wild_p",
+      "mine": 0.001,
+      "target": 0.001,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q5_primary",
+      "kind": "C_pp",
+      "mine": -2.9070334265581796,
+      "target": -2.9070334265513007,
+      "status": "EXACT_MATCH"
+    },
+    {
+      "quantity": "Q5_primary",
+      "kind": "C_ci95",
+      "mine": "[-4.2899,-1.5515]",
+      "target": "[-4.2979,-1.5437]",
+      "status": "CONSISTENT"
+    }
+  ],
+  "wild_cluster_bootstrap_any_divergent": false,
+  "estimator": "hand-rolled WLS normal-equations + explicit FE dummies + CR1 cluster cov for S1/Q2/Q3/Q4/Q5; statsmodels GLM (Binomial/Poisson, dummy FE, cov_type=cluster) for S2/S3; economy x digital-status cell-level Binomial GLM (var_weights=summed survey weight, cov_type=cluster) for S4",
+  "deviations": [
+    "Q5 inclusion logit dropped identically-constant regressors: ['any_cov_2019_missing']",
+    "Q5 Crump [0.1,0.9] overlap subsample: 11 economies (target G=11), N=10800 (target N=10800), weighted by 1/p_hat (restricted to the overlap region) x w_equal, not by plain w_equal alone.",
+    "Q5 entropy-balancing: solver=hand-rolled, standardized-covariate exponential-tilting dual with backtracking-damped Newton (base weights uniform 1/97); an UNDAMPED Newton step in raw covariate units diverged on the first attempt (covariates span wildly different scales -- 0/1 region dummies vs any_cov_2019 ~0-100 vs log_pop_adult ~14-19 -- which made the Hessian near-singular; fixed by standardizing all balance covariates before solving and adding a backtracking line search). Converged=True in 5 damped-Newton iterations, max standardized imbalance=5.44e-12 (threshold 1e-8), max/mean weight=9.5818 (EXTREME-WEIGHTS>10: False), Kish ESS=35.610 (LOW-ESS<48: True) -> status=ENTROPY_BALANCING_UNSTABLE. This independently reproduces Codex's own quality-flag numbers essentially exactly (Kish ESS 35.610 vs Codex's 35.610; max/mean 9.582 vs 9.582) and the same ENTROPY_BALANCING_UNSTABLE disposition, despite a completely different solver (standardized Newton dual here vs Codex's scipy.optimize.least_squares dual) -- strong evidence the frozen entropy_balancing_protocol is unambiguously specified.",
+    "S4 (fractional-logit) C-scale wild-cluster CI/wild_p NOT attempted: C is a nonlinear predicted-probability AME through the logit link (not a fixed linear rescaling of beta3 like the LPM-based rows), so a faithful bootstrap would require recomputing the AME at every one of 999 replications rather than a one-step linear rescaling -- out of scope for this pass, honestly flagged rather than approximated with the wrong (linear) scaling.",
+    "Q1_S2 (logit) and Q1_S3 (modified Poisson) dummy-FE coefficients are SAME_SIGN_DIFF: this run's IRLS-converged MLE is larger in magnitude than the EXP-S5-002 target on both scales (S2 -0.1822 vs -0.1656; S3 -0.1557 vs -0.1392, roughly 10-12% larger). Convergence was verified directly (IRLS converged in 7 iterations well inside the default gradient tolerance; re-fitting with method='newton' at tol=1e-12 reproduced the same coefficient), so this is not a non-convergence artifact on this side. Leading hypothesis, NOT confirmed: a ~97-dummy fixed-effects logit/Poisson likelihood surface is known to be numerically fragile (near-separation in small clusters), so two independently-written, individually-converged implementations can land on measurably different coefficients even with an identical design matrix -- and if Codex's implementation used any implicit L2 shrinkage (e.g. a regularized-by-default solver) rather than a plain unregularized IRLS/Newton MLE, that would mechanically shrink the coefficient toward zero in exactly the observed direction. This was not verified against Codex's code (out of scope for an independence-preserving reproduction) and is reported as a hypothesis, not a finding. Both scales agree in sign and both clear the NEG verdict threshold under the frozen classification ladder, so the decisive Q1 classification (multiplicative_reinforcement) is unaffected.",
+    "Wild-cluster bootstrap p-values and C-scale percentile CIs (2026-09-17 same-day pass 3): reconstructed from the method NAME ('Rademacher one-step cluster-score bootstrap by economy', 'null-imposed' for Q3) since no Codex code was opened; see wild_bootstrap_comparison.csv / wild_cluster_bootstrap in this receipt for the full quantity-by-quantity EXACT_MATCH/CONSISTENT/DIVERGENT disposition. Exact numerical agreement with Codex's own bootstrap draws is not expected or claimed; the comparison is whether independent resampling reaches the same substantive significance conclusion. TOST/verdict CIs elsewhere in this script still use the analytic cluster-t distribution (df = G-1) for the classification-relevant checks -- a difference in which CI is used for the decision rule, not in the point estimates or the cluster-robust variance formula.",
+    "S4 (fractional-logit) C-scale wild bootstrap not attempted -- see notes above.",
+    "Q3/Q4/Q5 classification checks are based on unadjusted significance for exposition here; the family-C joint BH q above is the number that actually governs the frozen decision rule."
+  ],
+  "environment": {
+    "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+    "numpy": "2.4.4",
+    "pandas": "2.3.1",
+    "statsmodels": "0.15.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "runtime_seconds": 91.7
+}

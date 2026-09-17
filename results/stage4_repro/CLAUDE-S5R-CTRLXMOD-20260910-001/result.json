@@ -1,0 +1,38 @@
+{
+  "run_id": "CLAUDE-S5R-CTRLXMOD-20260910-001",
+  "created_utc": "2026-09-10T10:52:16.071669+00:00",
+  "purpose": "SELFREVIEW C5: M2 + full control x lowcov2019_z interaction set",
+  "origin": "claude_post_registration_check",
+  "independent_reproduction_status": "PENDING",
+  "spec": "M2 (anydigpayment, dig_x_lowcov, account_fin, acc_x_lowcov, + 10 frozen controls) + {control x lowcov2019_z for each of the 10 controls}",
+  "N": 100560,
+  "G": 97,
+  "b3_dig_x_lowcov_baseline_M2": {
+    "est": -0.019748175274366085,
+    "se_cluster": 0.0047429828086121405
+  },
+  "b3_dig_x_lowcov_with_controlXmod": {
+    "est": -0.01544702721401907,
+    "se_cluster": 0.0045137609983981405,
+    "t": -3.4222076045898233,
+    "p_cluster_t": 0.0009143017080942937,
+    "ci95_t": [
+      -0.024406771981839964,
+      -0.006487282446198176
+    ]
+  },
+  "added_terms": [
+    "female_d_x_lz",
+    "age_c_x_lz",
+    "age_c2_x_lz",
+    "educ_2_x_lz",
+    "educ_3_x_lz",
+    "incq_2_x_lz",
+    "incq_3_x_lz",
+    "incq_4_x_lz",
+    "incq_5_x_lz",
+    "urban_d_x_lz"
+  ],
+  "conclusion": "b3 stays negative and significant",
+  "code_sha256": "c6af78138ffc88d810644b4d77e1a6c33bda12d187cd1272ae5ae1decc0ef561"
+}

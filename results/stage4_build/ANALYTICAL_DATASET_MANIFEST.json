@@ -1,0 +1,25 @@
+{
+  "stage": "Stage 4 analytical dataset build",
+  "build_date": "2026-09-17",
+  "contract": "Stage 3D.1",
+  "primary_sample_economies": 93,
+  "waves": [
+    2021,
+    2024
+  ],
+  "2017_role": "contextual/supplementary; excluded",
+  "primary_specification": "without account_fin conditioning",
+  "weight": "wave-specific wgt; no pooled weight",
+  "dataset": "analytical_dataset.csv",
+  "rows": 194558,
+  "columns": 12,
+  "input_hashes": {
+    "Findex2021_csv": "98EE1367D02F92B04D0933584A4620516B90ED5F9C554F867FA5037F3F721F7A",
+    "Findex2024_csv": "59F22173A99EDF1206504E50CB9329147EAE5E944BD6B75C16DF5C1B2034472A",
+    "economy_manifest": "EBB226ABDD4D8AA2F4AC1D1CE99CA61EAB6196C5E7313ED1C296875A5640CA9F"
+  },
+  "output_hashes": {
+    "analytical_dataset_csv": "78938AFF518F3F3BC049A18E7B8CA5C1042996392B1ACDD6EAAB56FC555240C1"
+  },
+  "estimation_performed": false
+}

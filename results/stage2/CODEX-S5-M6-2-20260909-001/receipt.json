@@ -1,0 +1,14 @@
+{
+  "input_panel_sha256": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9",
+  "code_sha256": "060f1dd66c0cf4a04a7d311d3e24969beb26594bf44df2f94810b1d1b38c681a",
+  "outputs_sha256": {
+    "F1_adjusted_country_gap.png": "1ca83b3a3930ce148c9b9a46a794c3f1f45336af226e2d0f40f818099991b533",
+    "F1_adjusted_country_gaps.csv": "419a1d909e1d467981a001d6f06e813d467ecfcd5cc39b215cffa8bd5196fa24",
+    "result.json": "81a320d9eb66df4556a8b366b4903245cb9e916204b7aac08703a87042a200c2"
+  },
+  "environment": {
+    "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+    "statsmodels": "0.15.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

@@ -1,0 +1,10 @@
+step,rows_before,rows_after,rows_dropped,economies_after,economies_exited
+fin22a_valid_1_or_2,144090,102644,41446,98,AUS;AUT;BEL;BHR;CAN;CHE;CHL;CYP;CZE;DEU;DNK;ESP;EST;FIN;FRA;GBR;GRC;HKG;HUN;IRL;ISL;ISR;ITA;JPN;KOR;KWT;LTU;LVA;MLT;NLD;NOR;NZL;PRT;RUS;SGP;SVK;SVN;SWE;TTO;TWN;URY;USA
+anydigpayment_nonmissing,102644,102644,0,98,
+account_fin_nonmissing,102644,102644,0,98,
+female_nonmissing,102644,102644,0,98,
+age_nonmissing,102644,102644,0,98,
+educ_nonmissing,102644,102245,399,98,
+inc_q_nonmissing,102245,101247,998,97,LSO
+urbanicity_nonmissing,101247,100560,687,97,
+moderator_iso3_match,100560,100560,0,97,

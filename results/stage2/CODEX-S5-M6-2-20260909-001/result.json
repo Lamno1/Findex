@@ -1,0 +1,52 @@
+{
+  "run_id": "CODEX-S5-M6-2-20260909-001",
+  "status": "ESTIMATED_UNVERIFIED_STAGE2_COMPLETION",
+  "M6_2": {
+    "logit": {
+      "converged": true,
+      "method": "newton",
+      "N": 100560,
+      "G": 97,
+      "coefficients": {
+        "anydigpayment": 0.5824714407345988,
+        "interaction": -0.16558915496261883
+      },
+      "ame": {
+        "anydigpayment_ame": 0.05102525313579129,
+        "anydigpayment_ame_se_cluster_delta": 0.005252445604490945,
+        "interaction_regressor_ame": -0.013480819978387548,
+        "interaction_regressor_ame_se_cluster_delta": 0.004383526323983909,
+        "definition": "sample-average derivative of inverse-link probability; digital derivative includes beta_any + beta_interaction*lowcov; interaction-regressor derivative is inverse-link derivative times beta_interaction"
+      }
+    },
+    "probit": {
+      "converged": true,
+      "method": "newton",
+      "N": 100560,
+      "G": 97,
+      "coefficients": {
+        "anydigpayment": 0.2953195114054267,
+        "interaction": -0.08842990596110677
+      },
+      "ame": {
+        "anydigpayment_ame": 0.04860759623902525,
+        "anydigpayment_ame_se_cluster_delta": 0.004784577537592165,
+        "interaction_regressor_ame": -0.013575300108900646,
+        "interaction_regressor_ame_se_cluster_delta": 0.0042013015265269914,
+        "definition": "sample-average derivative of inverse-link probability; digital derivative includes beta_any + beta_interaction*lowcov; interaction-regressor derivative is inverse-link derivative times beta_interaction"
+      }
+    }
+  },
+  "M2c_joint_wild": {
+    "wald_chi2": 13.536841782539044,
+    "df": 2,
+    "wild_cluster_score_p": 0.002,
+    "B": 999,
+    "seed": 20260909
+  },
+  "F1": {
+    "method": "outcome residualised on frozen individual controls and economy FE, excluding digital-payment terms; weighted residual gap by digital status within economy",
+    "countries": 97
+  },
+  "created_utc": "2026-09-09T15:05:34.150971+00:00"
+}

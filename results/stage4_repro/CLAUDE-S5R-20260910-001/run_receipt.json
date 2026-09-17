@@ -1,0 +1,64 @@
+{
+  "run_id": "CLAUDE-S5R-20260910-001",
+  "stage": 4,
+  "kind": "independent_reproduction",
+  "executed_by": "claude",
+  "reproduces": [
+    "CODEX-S5-EXP-20260909-002",
+    "CODEX-S5-M6-2-20260909-001",
+    "CODEX-S5-TABLES-20260909-001",
+    "CODEX-S5-AUDIT-20260909-001"
+  ],
+  "verdict": "PASS",
+  "evidence_status": "INDEPENDENTLY_REPRODUCED",
+  "created_utc": "2026-09-10T03:46:12Z",
+  "seed": 20260910,
+  "code_file": "code/study_05_crosscountry/CLAUDE-S5R-20260910-001_reproduce.py",
+  "code_sha256": "2e7a43db81af2c9b6a276cc24054da662f0247e5cab7b36e1106a16a96bd760f",
+  "input_sha256": {
+    "data/raw/data_micro_findex_2024_vietnam.xlsx": "ca307a0c3dfd54dc945a18fb03c58b014143bc21c90761f71fe304e6a2f90fce",
+    "projects/study_05_findex_crosscountry/data/raw/wb_credit_information_latest_snapshot.csv": "ef0c67f9c7d44b67939e088f0aab2e578f7ba0d7f2eeadc4093c0103cc1bd06c",
+    "projects/study_05_findex_crosscountry/data/raw/wdi_NY.GDP.PCAP.CD_2000_2023.json": "e7921b98db185e568c7d07dd5c094eb3dbf8e56ca11ba08a15f6d9abe34dcacd",
+    "projects/study_05_findex_crosscountry/data/raw/wdi_FS.AST.PRVT.GD.ZS_2000_2023.json": "ad301883321da15e2cfcf6a0fefb569565d8efc7c77f1ba5ee3ae540c77dc953"
+  },
+  "outputs_sha256": {
+    "analysis_panel.csv": "e14341d9e5c15bdd7c1cbce44653ae24dfa057441d9fc956710dc5f3260a2da6",
+    "drop_table.csv": "7e81f79c8c539feac5aa9f79b1a49659f4747458694b93a636f085338496e416",
+    "comparison.csv": "b374b923738116b4c96fec6e633449be38be2e990efdc24b3979f41fa6fed4e8"
+  },
+  "panel": {
+    "reproduced_primary": {
+      "N": 100560,
+      "G": 97,
+      "k_M1": 109,
+      "formal_borrow_sum": 10214.0,
+      "any_cov_median": 40.4
+    },
+    "reproduced_m3": {
+      "N": 90118,
+      "G": 89
+    },
+    "codex": {
+      "N": 100560,
+      "G": 97,
+      "N_m3": 90118,
+      "G_m3": 89,
+      "formal_borrow_valid_98": 102644
+    },
+    "match": true
+  },
+  "estimator": "hand-rolled WLS normal-equations + explicit FE dummies + CR1 cluster cov; logit/probit via statsmodels GLM dummy-variable FE",
+  "deviations": [
+    "wild-cluster bootstrap p-values not recomputed (seed-dependent secondary diagnostic)",
+    "M2c joint Wald reported in chi2 form (not F-form with G-1 dof); with/without account_fin interaction variants both in comparison.csv (M2c_wald_chi2__with_acc / __no_acc)",
+    "M6.2 nonlinear interaction AME differs ~10% -- definition-sensitive cross-partial in a 97-dummy FE GLM; sign and order of magnitude reproduce; Codex flagged M6.2 as sign-direction sensitivity only",
+    "M5 has no Codex numeric baseline in the Stage-3 artifacts; reported for completeness"
+  ],
+  "environment": {
+    "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+    "numpy": "2.4.4",
+    "pandas": "2.3.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "runtime_seconds": 115.1
+}

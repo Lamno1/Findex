@@ -1,0 +1,55 @@
+{
+  "run_id": "CLAUDE-S5-DB-INTEGRITY-TWOWAVE-20260918-001",
+  "created_utc": "2026-09-17T18:32:07.197361+00:00",
+  "purpose": "Extend CODEX-S5-DB-INTEGRITY-20260910-001 (single-wave 97-economy 2024 frame) to the current two-wave 93-economy primary design: exclude China (DB2018) and Saudi Arabia (DB2020), re-standardize the 2019 coverage moderator over the remaining 91 economies, and re-fit the frozen primary M2 specification separately for 2021 and 2024, with wild-cluster (Rademacher) inference.",
+  "excluded_economies": [
+    "CHN",
+    "SAU"
+  ],
+  "panel": "D:\\EconomicResearch\\projects\\study_05_findex_crosscountry\\results\\stage4_build\\analytical_dataset.csv",
+  "panel_sha256": "78938AFF518F3F3BC049A18E7B8CA5C1042996392B1ACDD6EAAB56FC555240C1",
+  "institutional_source": "D:\\EconomicResearch\\projects\\study_05_findex_crosscountry\\data\\raw\\wb_credit_information_by_country_year.csv",
+  "institutional_sha256": "2D7C9A27EFB59FF7BBCB894F3C0ECB51782DD8B1076C347868AAE047FE3D6288",
+  "code": "D:\\EconomicResearch\\projects\\study_05_findex_crosscountry\\code\\study_05_crosscountry\\db_integrity_sensitivity_twowave.py",
+  "code_sha256": "E15F6C97A59D3144AC8F55AC1B6818A8A4003D659F57C3BD19F50A04E4B10BA3",
+  "specification": "digital_payment + dig_x_lowcov + female_binary + age_c + age_c2 + C(education) + C(income_quintile) + C(economycode)",
+  "estimator": "weighted least squares linear probability model",
+  "weight": "w_equal = official wgt normalized within economy-wave",
+  "cluster": "economy",
+  "inference": "wild-cluster Rademacher score-bootstrap, 999 replications",
+  "causal_claims": false,
+  "results": [
+    {
+      "wave": 2021,
+      "primary_estimate_93economies": -0.0174364649340024,
+      "excl_chn_sau_estimate_91economies": -0.016442965175323506,
+      "se_cluster": 0.004895330676790671,
+      "ci95_lo": -0.02603781330183322,
+      "ci95_hi": -0.006848117048813791,
+      "p_cluster": 0.0007825112529215393,
+      "wild_p_rademacher": 0.001,
+      "N": 92263,
+      "G": 91,
+      "relative_change_vs_primary": 0.05697827870725644,
+      "same_sign": true,
+      "moderator_mean_91economies": 41.73846153846153,
+      "moderator_sd_ddof0_91economies": 31.52759046090422
+    },
+    {
+      "wave": 2024,
+      "primary_estimate_93economies": -0.0160852343044627,
+      "excl_chn_sau_estimate_91economies": -0.015386231014000733,
+      "se_cluster": 0.005927034446472403,
+      "ci95_lo": -0.02700321852908664,
+      "ci95_hi": -0.0037692434989148246,
+      "p_cluster": 0.009433229489462258,
+      "wild_p_rademacher": 0.007,
+      "N": 92822,
+      "G": 91,
+      "relative_change_vs_primary": 0.043456208173979376,
+      "same_sign": true,
+      "moderator_mean_91economies": 41.73846153846153,
+      "moderator_sd_ddof0_91economies": 31.52759046090422
+    }
+  ]
+}

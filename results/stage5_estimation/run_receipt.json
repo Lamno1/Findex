@@ -1,0 +1,50 @@
+{
+  "stage": "Stage 5 Estimation & Result Integrity Audit",
+  "date": "2026-09-17",
+  "dataset": "D:\\EconomicResearch\\projects\\study_05_findex_crosscountry\\results\\stage4_build\\analytical_dataset.csv",
+  "dataset_sha256": "78938AFF518F3F3BC049A18E7B8CA5C1042996392B1ACDD6EAAB56FC555240C1",
+  "code": "D:\\EconomicResearch\\projects\\study_05_findex_crosscountry\\code\\study_05_crosscountry\\stage5_estimation_audit.py",
+  "code_sha256": "3B05A4494B190ACDE8716A1F6F4F20D24DD28921F78200D77F0F0935E17D24DA",
+  "rows": 194558,
+  "economies": 93,
+  "waves": {
+    "2021": 96711,
+    "2024": 97847
+  },
+  "primary": [
+    "PRIMARY_M1_M2_2021",
+    "PRIMARY_M1_M2_2024"
+  ],
+  "secondary": [
+    "SECONDARY_POOLED_2021_2024",
+    "SECONDARY_DEPTH_2021",
+    "SECONDARY_DEPTH_2024"
+  ],
+  "sensitivity": [
+    "SPECB account_fin"
+  ],
+  "robustness": [
+    "unweighted",
+    "leave_one_economy_out",
+    "wild_cluster_bootstrap"
+  ],
+  "robustness_pending": [],
+  "wild_cluster_bootstrap": {
+    "method": "null-imposed cluster-score Rademacher",
+    "B": 999,
+    "seed_base": 20260917,
+    "completed_in": "results/stage5_1_reconciliation/wild_cluster_bootstrap.csv"
+  },
+  "estimator": "weighted least squares linear probability model",
+  "weight": "w_equal = official wgt normalized within economy-wave; no pooled weight",
+  "cluster": "economy",
+  "causal_claims": false,
+  "mechanism_claims": false,
+  "diD_or_iv": false,
+  "pooled_interpretation": "descriptive repeated-cross-section gradient; fixed 2019 moderator; not institutional-change effect",
+  "outputs": [
+    "estimates.csv",
+    "weight_sensitivity.csv",
+    "leave_one_economy_out.csv"
+  ]
+}

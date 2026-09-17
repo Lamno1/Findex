@@ -1,0 +1,48 @@
+{
+  "audit_id": "CODEX-S5-STAGE0-001",
+  "study_id": "H-000500",
+  "experiment_id": "EXP-S5-001",
+  "date": "2026-09-09",
+  "reviewer": "Codex",
+  "stage": 0,
+  "outcome_models_estimated": false,
+  "verdict": "PROCEED_WITH_CHANGES",
+  "data_feasibility": "FEASIBLE_WITH_LIMITATIONS",
+  "verified": {
+    "findex_sha256": "ca307a0c3dfd54dc945a18fb03c58b014143bc21c90761f71fe304e6a2f90fce",
+    "findex_shape": [144090, 199],
+    "findex_economies": 140,
+    "findex_year": 2024,
+    "moderator_snapshot_sha256": "ef0c67f9c7d44b67939e088f0aab2e578f7ba0d7f2eeadc4093c0103cc1bd06c",
+    "moderator_source_id": "1",
+    "moderator_api_lastupdated": "2021-08-18",
+    "moderator_observation_year": 2019,
+    "outcome_valid_rows": 102644,
+    "outcome_module_economies": 98,
+    "current_complete_case_rows": 96925,
+    "current_complete_case_economies": 96,
+    "moderator_unmatched_economies_before_complete_case": 0
+  },
+  "structural_country_exits": {
+    "LSO": "inc_q entirely missing",
+    "CHN": "emp_in entirely missing"
+  },
+  "high_income_module_economies": ["HRV", "POL", "ROU", "OMN", "SAU", "PAN"],
+  "blocking_revisions": [
+    "align population label with retained economies",
+    "correct expected final economy count",
+    "correct equal-economy and population weight formulas",
+    "freeze make/receive digital unknown-value truth tables",
+    "resolve internet_use placement",
+    "remove confirmatory two-way economy-region clustering",
+    "choose one multiplicity procedure and exact family",
+    "specify nonlinear FE implementation and failure policy",
+    "define M2c joint test and within-R2",
+    "describe moderator as 2019 coverage rather than contemporaneous system weakness"
+  ],
+  "novelty": "LIMITED_TO_MODERATE_EXACT_SPECIFICATION_NOT_LOCATED",
+  "permitted_positioning": "individual-level descriptive analogue and external-population check of an established firm-level pattern",
+  "stage_1_authorized": false,
+  "stage_1_condition": "dated pre-estimation contract revision completed and hash-frozen",
+  "review_file": "projects/study_05_findex_crosscountry/audit/CODEX_S5_STAGE0_REVIEW.md"
+}

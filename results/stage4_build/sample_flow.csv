@@ -1,0 +1,7 @@
+stage,wave,N,economies,exclusion_rule
+raw release,2021,143887,139,none; raw release
+93-economy frame,2021,97732,93,economy in frozen 93-economy manifest
+analysis-ready complete case,2021,96711,93,missing in required outcome/exposure/weight/covariate fields; no imputation
+raw release,2024,144090,140,none; raw release
+93-economy frame,2024,98425,93,economy in frozen 93-economy manifest
+analysis-ready complete case,2024,97847,93,missing in required outcome/exposure/weight/covariate fields; no imputation

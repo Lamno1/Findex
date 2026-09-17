@@ -1,0 +1,32 @@
+{
+  "freeze_id": "CODEX-S5-REV1-FREEZE-001",
+  "study_id": "H-000500",
+  "experiment_id": "EXP-S5-001",
+  "date": "2026-09-09",
+  "reviewer": "Codex",
+  "verdict": "INVALIDATED_PRE_STAGE1_BY_FIN24_SEMANTIC_DEFECT",
+  "outcome_models_estimated_before_freeze": false,
+  "consistency_corrections_before_freeze": [
+    "README target-population and expected-sample wording",
+    "raw-manifest structural coverage wording",
+    "execution-brief hard rule for a resolved PROCEED_WITH_CHANGES verdict"
+  ],
+  "frozen_files": [
+    {"path": "projects/study_05_findex_crosscountry/papers/study_05/CLAIM_CONTRACT.md", "size_bytes": 4716, "sha256": "d4d704be0d8fe18f97b7d96e1ab1b47eb7fcaf05d2ec6c81c1a8e8a027f9932a"},
+    {"path": "projects/study_05_findex_crosscountry/papers/study_05/CODEX_EXECUTION_BRIEF.md", "size_bytes": 6864, "sha256": "05112419c85f428f87055c438d66890b9d152182126ea48e89b1fa184d7b0a1d"},
+    {"path": "projects/study_05_findex_crosscountry/papers/study_05/PREREGISTRATION.md", "size_bytes": 8709, "sha256": "52dad0b854a1e82fd23d7fc93215bb9ee695c8201d75145e92df7284ddecd66f"},
+    {"path": "projects/study_05_findex_crosscountry/papers/study_05/REVISION_1_RESPONSE.md", "size_bytes": 9853, "sha256": "15615ab32dbd93588a4c40a6e852e4f7bf063bc16e54e68c271d96719e57e752"},
+    {"path": "projects/study_05_findex_crosscountry/papers/study_05/VARIABLE_CONTRACT.md", "size_bytes": 6643, "sha256": "a39f9a2452eeac8e84b584ff6a073531ac17b6dd06614e5820f757deba95ef27"},
+    {"path": "projects/study_05_findex_crosscountry/research_council/hypotheses/H-000500.json", "size_bytes": 5234, "sha256": "f05ceef032a7bd38725c445fa3768d6cbad14abe9213e550876da02f6ee88314"}
+  ],
+  "immutability_rule": "Any subsequent byte change to a frozen file invalidates this receipt and requires a dated revision and new freeze before affected estimation.",
+  "stage_1_authorized": false,
+  "stage_2_authorized": false,
+  "stage_2_condition": "Revision 2 fixes fin24 naming/coding, receives a new hash freeze, and Stage 1 then passes all fail-closed checks",
+  "invalidation": {
+    "date": "2026-09-09",
+    "before_any_outcome_estimation": true,
+    "reason": "fin24=4 combines a financial-institution, employer, or private-lender loan and cannot support a variable or claim named emergency_formal; refused code 9 was omitted from the explicit drop rule",
+    "record": "projects/study_05_findex_crosscountry/audit/CODEX_S5_PREBUILD_SEMANTIC_BLOCK.md"
+  }
+}

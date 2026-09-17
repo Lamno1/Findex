@@ -1,0 +1,24 @@
+{
+  "run_id": "CODEX-S5-EXP-20260909-002",
+  "status": "ESTIMATED_UNVERIFIED",
+  "created_utc": "2026-09-09T15:03:22.774997+00:00",
+  "seed": 20260909,
+  "wild_repetitions": 999,
+  "input_panel_sha256": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9",
+  "code_sha256": "31109145b233cdb2ed22e9c892130d29e95c6bdbf29bb19918432f1f3d65111e",
+  "runtime_seconds": 30.442747354507446,
+  "environment": {
+    "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+    "numpy": "2.4.4",
+    "pandas": "2.3.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "outputs_sha256": {
+    "figures/F1_country_gap.png": "f766eb2c9a424aa4e6e51079eb60cfdbe773c1c4c656a0ced63bdefdf4bb6a60",
+    "figures/F2_leave_one_out.png": "07cee7f2eceb39561fa6db1de7be61afbc47ab894dda88f46c6b895f9f75c754",
+    "figures/F3_implied_association.png": "cd9aff261e794665bad039f783d7be38318d4a8b805a8dab024aa2ce45080a99",
+    "interaction_grid.csv": "f6da26f05707b7b4de870bd4fd55df9a6d1b37620fbd3b4dda965bbf530df23c",
+    "leave_one_economy_out.csv": "ccf6b5d2793fdade6d35a81bb240a8bf59d21cc154c75fa6a9e7cbb47f1b6606",
+    "result.json": "1b10c45515d685e1aedb6ba9098e6c9833bfd1ea4a3396e72b9784d4aa6a516f"
+  }
+}

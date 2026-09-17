@@ -1,0 +1,41 @@
+"""Cold implementation B for H-000501 R6. Does not import analysis-run code."""
+from __future__ import annotations
+import hashlib,json,platform,sys,time
+from datetime import datetime,timezone
+from pathlib import Path
+import numpy as np,pandas as pd,patsy,statsmodels.api as sm
+
+ROOT=Path(__file__).resolve().parents[4]; P=ROOT/"projects/study_05_findex_crosscountry"; RUN=P/"results/stage2/CODEX-S5-EXP-S5-002-20260913-001"; PANEL=P/"results/stage1/CODEX-S5-BUILD-20260909-001/analysis_panel.csv"; OUT=RUN/"cold_reproduction_codex_b.json"
+M2="anydigpayment + anydigpayment:lowcov2019_z + account_fin + account_fin:lowcov2019_z + female_d + age_c + age_c2 + C(educ) + C(inc_q) + urban_d + C(iso3)"; T="anydigpayment:lowcov2019_z"; TOL=5e-10
+FROZEN={P/"research_council/hypotheses/H-000501.json":"9eb335e85575fc06f92ab79684149483e2d1cbb0cc344b50932a89f3f4bb4e9c",P/"papers/study_05/PREREGISTRATION_H000501.md":"ec5ba7fe5471ea6bc7a9aee67c6085434c89d6221c7df5a68724a16d28fe22ec",P/"papers/study_05/VARIABLE_CONTRACT_H000501.md":"9fbf5306842214fd9be6ea06c497ee23608296df53bb8026aabc04354acf20db"}
+def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+def wls(d,y,rhs,w="w_equal"):
+ yy,X=patsy.dmatrices(y+" ~ "+rhs,d,return_type="dataframe"); q=d.loc[X.index]; fit=sm.WLS(yy.iloc[:,0],X,weights=q[w]).fit(cov_type="cluster",cov_kwds={"groups":q.iso3,"use_correction":True}); return fit,X,q
+def glm(d,fam):
+ y,X=patsy.dmatrices("formal_borrow ~ "+M2,d,return_type="dataframe"); q=d.loc[X.index]; f=sm.GLM(y.iloc[:,0],X,family=fam,freq_weights=q.w_equal).fit(maxiter=200,tol=1e-10,cov_type="cluster",cov_kwds={"groups":q.iso3}); return f,X,q
+def latest(path):
+ rows=json.loads(path.read_text(encoding="utf-8"))[1]; z={}
+ for r in rows:
+  c,v,yr=r.get("countryiso3code"),r.get("value"),int(r["date"])
+  if c and v is not None and yr<=2023 and (c not in z or yr>z[c][1]): z[c]=(float(v),yr)
+ return z
+def q5data(d):
+ micro=pd.read_excel(ROOT/"data/raw/data_micro_findex_2024_vietnam.xlsx",sheet_name="findex_microdata_2025_labelled_",usecols=["economy","economycode","regionwb","pop_adult"]); f=micro.groupby("economycode",observed=True).agg(region=("regionwb","first"),pop_adult=("pop_adult","first")).reset_index().rename(columns={"economycode":"iso3"}); f["included"]=f.iso3.isin(d.iso3.unique()).astype(int); s=pd.read_csv(P/"data/raw/wb_credit_information_latest_snapshot.csv"); f=f.merge(s[["iso3","credit_bureau_cov_pct","credit_registry_cov_pct"]],on="iso3",how="left"); f["any_cov_2019"]=f[["credit_bureau_cov_pct","credit_registry_cov_pct"]].max(axis=1,skipna=True); gd=latest(P/"data/raw/wdi_NY.GDP.PCAP.CD_2000_2023.json"); cr=latest(P/"data/raw/wdi_FS.AST.PRVT.GD.ZS_2000_2023.json"); f["lgdppc"]=f.iso3.map(lambda x:np.log(gd[x][0]) if x in gd and gd[x][0]>0 else np.nan); f["privcredit_gdp"]=f.iso3.map(lambda x:cr.get(x,(np.nan,))[0]); f=f.loc[~f[["any_cov_2019","lgdppc","privcredit_gdp"]].isna().all(axis=1)].copy()
+ for c in ["any_cov_2019","lgdppc","privcredit_gdp"]: f[c]=f[c].fillna(0 if c=="any_cov_2019" else f[c].median())
+ f["log_pop_adult"]=np.log(f.pop_adult); ref="Sub-Saharan Africa (excluding high income)"; y,X=patsy.dmatrices("included ~ any_cov_2019 + lgdppc + privcredit_gdp + C(region, Treatment(reference="+repr(ref)+")) + log_pop_adult",f,return_type="dataframe"); ph=np.asarray(sm.GLM(y.iloc[:,0],X,family=sm.families.Binomial()).fit(maxiter=200,tol=1e-10).predict(X)); inc=f.included.eq(1); raw=1/ph[inc]; lo,hi=np.quantile(raw,[.01,.99]); mp=dict(zip(f.loc[inc,"iso3"],np.clip(raw,lo,hi))); q=d.copy(); q["w_b"]=q.w_equal*q.iso3.map(mp); return q[q.w_b.notna()],f,ph
+def main():
+ started=time.time(); assert all(sha(p)==h for p,h in FROZEN.items()); a=json.loads((RUN/"final_result.json").read_text()); d=pd.read_csv(PANEL); got={}; comparisons=[]
+ f1,_,_=wls(d,"formal_borrow",M2); got["Q1_S1"]=float(f1.params[T]); fl,_,_=glm(d,sm.families.Binomial()); got["Q1_S2"]=float(fl.params[T]); fp,_,_=glm(d,sm.families.Poisson()); got["Q1_S3"]=float(fp.params[T])
+ cells=[]
+ for (iso,dig),g in d.groupby(["iso3","anydigpayment"]): cells.append({"iso3":iso,"digital_cell":dig,"L":g.lowcov2019_z.iloc[0],"rate":np.average(g.formal_borrow,weights=g.w_equal),"cw":g.wgt.sum()})
+ c=pd.DataFrame(cells); y,X=patsy.dmatrices("rate ~ digital_cell * L",c,return_type="dataframe"); got["Q1_S4"]=float(sm.GLM(y.iloc[:,0],X,family=sm.families.Binomial(),freq_weights=c.cw).fit().params["digital_cell:L"])
+ q=d[d.informal_borrow.notna()].copy(); got["Q2_formal"]=float(wls(q,"formal_borrow",M2)[0].params[T]); q["any_borrow"]=((q.formal_borrow==1)|(q.informal_borrow==1)).astype(int); got["Q2_any"]=float(wls(q,"any_borrow",M2)[0].params[T])
+ acc=d.account_fin.eq(1); dig=d.anydigpayment.eq(1); d["state"]=np.select([~acc&~dig,acc&~dig,acc&dig,~acc&dig],["unbanked","account_only","digitally_active","digitally_active_no_fi"],default="invalid"); q=d[d.state!="digitally_active_no_fi"].copy(); q["acc_state"]=(q.state=="account_only").astype(int); q["dig_state"]=(q.state=="digitally_active").astype(int); rhs="acc_state + dig_state + acc_state:lowcov2019_z + dig_state:lowcov2019_z + female_d + age_c + age_c2 + C(educ) + C(inc_q) + urban_d + C(iso3)"; fq,_,_=wls(q,"formal_borrow",rhs); got["Q3_acc_L"]=float(fq.params["acc_state:lowcov2019_z"]); got["Q3_dig_L"]=float(fq.params["dig_state:lowcov2019_z"]); got["Q3_difference"]=got["Q3_dig_L"]-got["Q3_acc_L"]
+ m=pd.read_csv(P/"data/raw/wb_credit_information_by_country_year.csv"); w=m[m.year.between(2015,2019)].drop_duplicates(["iso3","year"]); w["cov"]=w[["credit_bureau_cov_pct","credit_registry_cov_pct"]].max(axis=1,skipna=True); z=w[w.iso3.isin(d.iso3.unique())].pivot(index="iso3",columns="year",values="cov").dropna(); av=z.mean(axis=1); d["meanL"]=d.iso3.map(-(av-av.mean())/av.std(ddof=0)); d["persL"]=d.iso3.map(z.lt(z[2019].median()).all(axis=1).astype(int)); got["Q4_mean"]=float(wls(d,"formal_borrow",M2.replace("lowcov2019_z","meanL"))[0].params["anydigpayment:meanL"]); got["Q4_persistent"]=float(wls(d,"formal_borrow",M2.replace("lowcov2019_z","persL"))[0].params["anydigpayment:persL"])
+ q5,f,ph=q5data(d); got["Q5_primary"]=float(wls(q5,"formal_borrow",M2,"w_b")[0].params[T]); got["Q5_frame"]=int(len(f)); inc=f.included.eq(1); lo=max(ph[inc].min(),ph[~inc].min()); hi=min(ph[inc].max(),ph[~inc].max()); got["Q5_outside"]=int(((ph<lo)|(ph>hi)).sum())
+ expected={"Q1_S1":a["Q1"]["sample_comparability"]["S1_full"]["estimate"],"Q1_S2":a["Q1"]["S2_logit"]["estimate"],"Q1_S3":a["Q1"]["S3_modified_poisson"]["estimate"],"Q1_S4":a["Q1"]["S4_fractional_logit"]["estimate"],"Q2_formal":a["Q2"]["formal_common_frame"]["estimate"],"Q2_any":a["Q2"]["any_borrow"]["estimate"],"Q3_acc_L":a["Q3"]["primary"]["coefficients"]["acc_state:lowcov2019_z"]["estimate"],"Q3_dig_L":a["Q3"]["primary"]["coefficients"]["dig_state:lowcov2019_z"]["estimate"],"Q3_difference":a["Q3"]["digital_minus_account"]["estimate"],"Q4_mean":a["Q4"]["rows"]["3_lowcov_mean1519_z"]["estimate"],"Q4_persistent":a["Q4"]["rows"]["4_lowcov_persistent"]["estimate"],"Q5_primary":a["Q5"]["estimates"]["primary_trim_1_99"]["estimate"],"Q5_frame":139,"Q5_outside":81}
+ for k,e in expected.items():
+  delta=float(got[k]-e); comparisons.append({"quantity":k,"run_A":e,"cold_B":got[k],"delta":delta,"match":abs(delta)<=TOL})
+ status="INTERNAL_DUAL_IMPLEMENTATION_REPRODUCED" if all(x["match"] for x in comparisons) else "REPRODUCTION_MISMATCH"
+ out={"run_id":"CODEX-S5R-H000501-20260914-001","source_run_id":a["run_id"],"status":status,"scope":"Cold implementation B with no imports from run-A analysis code; internal Codex dual implementation, not external-agent independence","tolerance":TOL,"comparisons":comparisons,"classifications":{k:a[k]["classification"] for k in ["Q1","Q2","Q3","Q4","Q5"]},"frozen_hashes":{str(p.relative_to(P)):h for p,h in FROZEN.items()},"code_sha256":sha(Path(__file__)),"runtime_seconds":time.time()-started,"environment":{"python":sys.version,"platform":platform.platform(),"numpy":np.__version__,"pandas":pd.__version__,"statsmodels":sm.__version__},"created_utc":datetime.now(timezone.utc).isoformat()}; OUT.write_text(json.dumps(out,indent=2),encoding="utf-8"); print(json.dumps({"status":status,"output":str(OUT),"mismatches":[x for x in comparisons if not x["match"]]},indent=2))
+if __name__=="__main__": main()

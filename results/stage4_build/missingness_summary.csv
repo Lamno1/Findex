@@ -1,0 +1,17 @@
+variable,wave,valid,missing,DK,refused,structural_missing,invalid,pct_missing
+formal_borrow,2021,96711,0,0,0,not separately identifiable after complete-case build,0,0.0
+digital_payment,2021,96711,0,0,0,not separately identifiable after complete-case build,0,0.0
+account_fin,2021,96711,0,0,0,not separately identifiable after complete-case build,0,0.0
+female_binary,2021,96711,0,0,0,not separately identifiable after complete-case build,0,0.0
+age,2021,96711,0,0,0,not separately identifiable after complete-case build,0,0.0
+education,2021,96711,0,0,0,not separately identifiable after complete-case build,0,0.0
+income_quintile,2021,96711,0,0,0,not separately identifiable after complete-case build,0,0.0
+wgt,2021,96711,0,0,0,not separately identifiable after complete-case build,0,0.0
+formal_borrow,2024,97847,0,0,0,not separately identifiable after complete-case build,0,0.0
+digital_payment,2024,97847,0,0,0,not separately identifiable after complete-case build,0,0.0
+account_fin,2024,97847,0,0,0,not separately identifiable after complete-case build,0,0.0
+female_binary,2024,97847,0,0,0,not separately identifiable after complete-case build,0,0.0
+age,2024,97847,0,0,0,not separately identifiable after complete-case build,0,0.0
+education,2024,97847,0,0,0,not separately identifiable after complete-case build,0,0.0
+income_quintile,2024,97847,0,0,0,not separately identifiable after complete-case build,0,0.0
+wgt,2024,97847,0,0,0,not separately identifiable after complete-case build,0,0.0

@@ -1,0 +1,18 @@
+{
+  "2021": {
+    "reconstructed_N": 96711,
+    "reconstructed_G": 93,
+    "expected_N": 96711,
+    "expected_G": 93,
+    "N_match": true,
+    "G_match": true
+  },
+  "2024": {
+    "reconstructed_N": 97847,
+    "reconstructed_G": 93,
+    "expected_N": 97847,
+    "expected_G": 93,
+    "N_match": true,
+    "G_match": true
+  }
+}

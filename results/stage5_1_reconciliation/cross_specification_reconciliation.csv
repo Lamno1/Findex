@@ -1,0 +1,4 @@
+quantity,separate_wave,pooled_implied,difference_pooled_minus_separate,unit,explanation
+2021 gradient,-0.0174364649340024,-0.0198411916314762,-0.0024047266974738003,probability points,Pooled base interaction is the 2021 reference gradient under the pooled parameterization; it is jointly estimated with common slopes and pooled composition.
+2024 gradient,-0.0160852343044627,-0.0140056475984199,0.0020795867060427985,probability points,"Pooled 2024 gradient is base interaction plus the 2024 triple interaction; separate and pooled regressions need not coincide because coefficients are jointly estimated with pooled controls, FE, weights and composition."
+2024 minus 2021 gradient,0.0013512306295397,0.0058355440330563,0.0044843134035166,probability points,"Both are descriptive contrasts; no new equality test was pre-specified, so the contrast is not assigned a formal p-value here."

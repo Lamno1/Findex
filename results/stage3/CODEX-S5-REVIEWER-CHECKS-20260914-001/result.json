@@ -1,0 +1,54 @@
+{
+  "run_id": "CODEX-S5-REVIEWER-CHECKS-20260914-001",
+  "status": "POST_RESULT_DIAGNOSTIC",
+  "sample": {
+    "outcome_valid": 102644,
+    "economies": 98,
+    "missing_education": 399,
+    "missing_income_quintile": 1013,
+    "missing_urbanicity": 695,
+    "missing_any_of_three": 2084,
+    "complete": 100560
+  },
+  "M2_fit": {
+    "overall_r2": 0.08516346351947646,
+    "within_r2_recomputed": 0.04814486146344166,
+    "prediction_bounds": {
+      "below_zero": 10758,
+      "above_one": 0,
+      "share_outside": 0.10698090692124106,
+      "min": -0.26361887292887165,
+      "max": 0.46596598057187394
+    },
+    "N": 100560,
+    "G": 97
+  },
+  "data_challenge": {
+    "artifact_inventory": [
+      "D:\\EconomicResearch\\data\\raw\\data_micro_findex_2024_vietnam.xlsx",
+      "D:\\EconomicResearch\\projects\\study_05_findex_crosscountry\\data\\raw\\wb_credit_information_latest_snapshot.csv",
+      "D:\\EconomicResearch\\projects\\study_05_findex_crosscountry\\results\\stage1\\CODEX-S5-BUILD-20260909-001\\analysis_panel.csv"
+    ],
+    "variable_lineage": {
+      "missingness": "Findex raw educ/inc_q/urbanicity after valid fin22a",
+      "coverage": "World Bank snapshot max(private bureau, public registry)",
+      "R2": "M2 WLS on frozen analysis panel"
+    },
+    "coverage": "98 outcome-valid economies before listwise controls; 97 final economies",
+    "quality_findings": [
+      "Missingness is descriptive and post-result; it cannot prove missing-at-random",
+      "Outcome-module availability remains the dominant sample-selection event"
+    ],
+    "merge_audit": "many-to-one ISO3 merge to coverage snapshot",
+    "leakage_and_revision_risks": "No future variable is introduced; 2019 moderator vintage remains disclosed",
+    "unverified_semantics": [],
+    "design_support": "Supports a differential-missingness diagnostic and transparent fit reporting, not correction for non-random missingness",
+    "feasibility_verdict": "FEASIBLE_WITH_LIMITATIONS"
+  },
+  "input_sha256": {
+    "micro": "ca307a0c3dfd54dc945a18fb03c58b014143bc21c90761f71fe304e6a2f90fce",
+    "snapshot": "ef0c67f9c7d44b67939e088f0aab2e578f7ba0d7f2eeadc4093c0103cc1bd06c",
+    "panel": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9"
+  },
+  "created_utc": "2026-09-14T02:08:41.994985+00:00"
+}

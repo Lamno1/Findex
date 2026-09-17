@@ -1,0 +1,21 @@
+{
+  "run_id": "CODEX-S5-EXP-S5-002-20260913-001",
+  "audit_status": "FAIL_NOT_FINAL",
+  "audited_artifact": "final_result.json",
+  "findings": [
+    {
+      "id": "A1",
+      "severity": "BLOCKING",
+      "finding": "Q1 S4 has no common contrast C or cluster-bootstrap confidence interval, and F2 contains only S1-S3.",
+      "required_action": "Compute S4 C through the fractional-logit link, add its 999-draw economy-cluster bootstrap interval, and include S4 in T1 and F2."
+    },
+    {
+      "id": "A2",
+      "severity": "BLOCKING",
+      "finding": "LPM common-contrast intervals currently use a cluster-sandwich parametric coefficient simulation, not the registered economy-cluster bootstrap.",
+      "required_action": "Replace every LPM C interval with a documented 999-draw economy-level bootstrap or frozen cluster-score Rademacher implementation based on actual cluster scores."
+    }
+  ],
+  "conclusion": "The status string ESTIMATED_UNVERIFIED_OUTPUT_CONTRACT_COMPLETE is not accepted. final_result.json and final_receipt.json are superseded working artifacts until both blockers are corrected and the delivery gate is rerun.",
+  "independently_reproduced": false
+}

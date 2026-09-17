@@ -1,0 +1,50 @@
+{
+  "run_id": "CODEX-S5-EXP-S5-002-20260913-001",
+  "status": "ESTIMATED_UNVERIFIED_OUTPUT_CONTRACT_COMPLETE",
+  "independently_reproduced": false,
+  "frozen_hashes": {
+    "research_council\\hypotheses\\H-000501.json": "9eb335e85575fc06f92ab79684149483e2d1cbb0cc344b50932a89f3f4bb4e9c",
+    "papers\\study_05\\PREREGISTRATION_H000501.md": "ec5ba7fe5471ea6bc7a9aee67c6085434c89d6221c7df5a68724a16d28fe22ec",
+    "papers\\study_05\\VARIABLE_CONTRACT_H000501.md": "9fbf5306842214fd9be6ea06c497ee23608296df53bb8026aabc04354acf20db"
+  },
+  "code_sha256": {
+    "code\\study_05_crosscountry\\finalize_h000501.py": "8d37f1d4d94ffc6fbad51f2e191d95a4d0cad037ee891b3c2a9b2ee8f767c7bd",
+    "code\\study_05_crosscountry\\complete_h000501_outputs.py": "6cb2a9d6b83c4a0ef866fa2c084d567a26834d30b01f0624ca698ea491c0cf3a",
+    "code\\study_05_crosscountry\\regenerate_h000501_q4_r6.py": "cff14cddc216f88bdde440ee62f77ed6a52a09de651d02c4e6fc5237d784c225",
+    "code\\study_05_crosscountry\\run_h000501_exp_s5_002.py": "c4c5c981c5d8604dc6a1e883425909386f3d9eba45f28523bfaf313f4fdcab1c",
+    "code\\study_05_crosscountry\\run_h000501_q5.py": "8260edff5dbcfd3e378de1afb67d2b319320fe1bb75328e8b0c3719a32c5d2fd",
+    "code\\study_05_crosscountry\\estimate_stage2_codex.py": "31109145b233cdb2ed22e9c892130d29e95c6bdbf29bb19918432f1f3d65111e"
+  },
+  "input_sha256": {
+    "projects\\study_05_findex_crosscountry\\results\\stage1\\CODEX-S5-BUILD-20260909-001\\analysis_panel.csv": "ac7077297c2c107f1354861f5c3c2d688d5c455cc013da39c7361f161bc3a8a9",
+    "projects\\study_05_findex_crosscountry\\results\\stage2\\CODEX-S5-EXP-S5-002-20260913-001\\result_enriched.json": "4ba9e41b108eb311c7e09114405ec78b41560d697fd0895dd9c8f64a8f350e43",
+    "projects\\study_05_findex_crosscountry\\data\\raw\\wb_credit_information_by_country_year.csv": "2d7c9a27efb59ff7bbcb894f3c0ecb51782dd8b1076c347868aae047fe3d6288",
+    "projects\\study_05_findex_crosscountry\\data\\raw\\wb_credit_information_latest_snapshot.csv": "ef0c67f9c7d44b67939e088f0aab2e578f7ba0d7f2eeadc4093c0103cc1bd06c",
+    "data\\raw\\data_micro_findex_2024_vietnam.xlsx": "ca307a0c3dfd54dc945a18fb03c58b014143bc21c90761f71fe304e6a2f90fce",
+    "projects\\study_05_findex_crosscountry\\data\\raw\\wdi_NY.GDP.PCAP.CD_2000_2023.json": "e7921b98db185e568c7d07dd5c094eb3dbf8e56ca11ba08a15f6d9abe34dcacd",
+    "projects\\study_05_findex_crosscountry\\data\\raw\\wdi_FS.AST.PRVT.GD.ZS_2000_2023.json": "ad301883321da15e2cfcf6a0fefb569565d8efc7c77f1ba5ee3ae540c77dc953"
+  },
+  "artifacts_sha256": {
+    "final_result.json": "2cee0b6f9ba65ee92306faed2e588bcf5c29f64cf0297c64ba2a841fc8d38cb8",
+    "tables\\T1_q1_scale.csv": "cc2e6190fe3da3faa542f9d7c7654b6b579d90bb2610e160328b39669e60a7dd",
+    "tables\\T2_q2_channel.csv": "282a8575dac2f615cee2d0fff9cda5e73c4a17d3510ce29efd57fa7eedca0aba",
+    "tables\\T3_q3_exposure.csv": "044b9fac785d150ac200209e31d8f5876f38332219b560821b598c60d576d561",
+    "tables\\T4_q4_persistence.csv": "abfc30f5aab393fa10ad01e3579696a8a38252a3bde2512c6041994fd34a378d",
+    "tables\\T5_q5_transportability.csv": "03b68db7b0d00dce84793d271961baeff1dcd63dd4ef0410d3896956def97301",
+    "figures\\F1_absolute_relative.png": "bbaf2d296ca7f890917e6b99658f1b2964f8e32bdd1c5b4ec7fb83c428296856",
+    "figures\\F2_common_contrast.png": "ebe5200e9121c0d16f55d0f670e3396092eeb7c98976860887ba7ae3e19d467f"
+  },
+  "bootstrap": {
+    "method": "Rademacher one-step cluster-score bootstrap by economy",
+    "draws": 999,
+    "seed": 20260913
+  },
+  "wall_clock_seconds_finalizer": 103.56305932998657,
+  "environment": {
+    "python": "3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.4",
+    "pandas": "2.3.1",
+    "statsmodels": "0.15.0"
+  }
+}
